@@ -3,7 +3,7 @@ name: Update DB (update-db.yml)
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "* */4 * * *"
   push:
     branches:
       - main
