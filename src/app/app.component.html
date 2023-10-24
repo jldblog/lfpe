@@ -1,0 +1,13 @@
+<div id="root">
+  <div class="wrapper">
+    <p-scrollTop [threshold]="40" styleClass="scroll-top"></p-scrollTop>
+    <app-header></app-header>
+    <div class="flex justify-content-center">
+      <p-messages [closable]="false"></p-messages>
+    </div>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer>footer</app-footer>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div
+  class="app-result-dataview"
+  [style.display]="!hideTable ? 'none' : 'inline-flex'"
+>
+  <div class="app-dataview border-1 surface-border border-round shadow-2">
+    <div
+      class="app-cell"
+      *ngFor="let video of videosSlice2"
+      (click)="onShowDescriptionDialog(video)"
+    >
+      <img class="shadow-4 border-round" [src]="video.thumbnails.medium.url" />
+      <p lang="en">
+        {{ video.shortTitle }}
+      </p>
+    </div>
+  </div>
+  <div class="app-paginator">
+    <p-paginator
+      (onPageChange)="onPageChange2($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="videos.length"
+      [alwaysShow]="false"
+      [showPageLinks]="showPageLinks"
+    ></p-paginator>
+  </div>
+</div>

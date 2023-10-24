@@ -1,0 +1,62 @@
+<div class="app-description">
+  <div class="app-row">
+    <div class="app-column">
+      <div class="app-figure border-1 surface-border border-round">
+        <a
+          [href]="'https://www.youtube.com/watch?v=' + video.id"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="app-figure-wrapper">
+            <img
+              class="shadow-2 border-round"
+              [src]="video.thumbnails.medium.url"
+            />
+            <img class="app-ytube" src="assets/img/youtube.webp" />
+          </div>
+        </a>
+        <div class="app-caption">
+          <label
+            ><i class="pi pi-calendar">&nbsp;</i
+            >{{ publishedDate | date : "yyyy-MM-dd" }}</label
+          >
+          <label
+            ><i class="pi pi-clock">&nbsp;</i
+            >{{ video.duration | duration }}</label
+          >
+          <label>
+            <i class="pi pi-eye">&nbsp;</i
+            >{{ video.statistics.viewCount | number : "" : lang }}
+          </label>
+          <label
+            ><i class="pi pi-thumbs-up">&nbsp;</i
+            >{{ video.statistics.likeCount | number : "" : lang }}
+          </label>
+        </div>
+      </div>
+      <div
+        class="app-content border-1 surface-border border-round"
+        innerHTML="{{ info }}"
+        [style.display]="descriptionEmpty ? 'none' : 'block'"
+      ></div>
+      <div
+        class="app-content border-1 surface-border border-round"
+        innerHTML="{{ outline }}"
+        [style.display]="descriptionEmpty ? 'none' : 'block'"
+      ></div>
+    </div>
+    <div class="app-column">
+      <div
+        *ngIf="transcript"
+        class="app-content border-1 surface-border border-round"
+        innerHTML="{{ transcript }}"
+        [style.display]="descriptionEmpty ? 'none' : 'block'"
+      ></div>
+      <div
+        class="app-content border-1 surface-border border-round"
+        innerHTML="{{ cleanedDescription }}"
+        [style.display]="descriptionEmpty ? 'none' : 'block'"
+      ></div>
+    </div>
+  </div>
+</div>

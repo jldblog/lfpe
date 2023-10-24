@@ -1,0 +1,34 @@
+<div class="app-searchby">
+  <p-panel header="{{ 'tab.date' | translate }}">
+    <div class="app-search">
+      <div class="app-date">
+        <label>{{ "search.from" | translate }}</label>
+        <p-calendar
+          [(ngModel)]="dateFrom"
+          dateFormat="mm/yy"
+          view="month"
+          [minDate]="minDateFrom"
+          [maxDate]="maxDateFrom"
+          [showIcon]="true"
+          [readonlyInput]="true"
+          (onSelect)="onDateChange()"
+        ></p-calendar>
+      </div>
+      <div class="app-date">
+        <label>{{ "search.to" | translate }}</label>
+        <p-calendar
+          [(ngModel)]="dateTo"
+          dateFormat="mm/yy"
+          view="month"
+          [minDate]="minDateTo"
+          [maxDate]="maxDateTo"
+          [showIcon]="true"
+          [readonlyInput]="true"
+          (onSelect)="onDateChange()"
+        >
+        </p-calendar>
+      </div>
+    </div>
+  </p-panel>
+  <app-results [videos]="videos"></app-results>
+</div>

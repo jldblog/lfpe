@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lex Fridman Podcast - Episodes Explorer</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style type="text/css">
+      .app-init {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Roboto;
+        font-size: 16px;
+      }
+      .app-spinner {
+        position: relative;
+        top: -10;
+        left: 0;
+        width: 80px;
+        height: 80px;
+      }
+      .img1 {
+        position: relative;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+      }
+      .img2 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 80px;
+        height: 80px;
+      }
+    </style>
+    <link
+      id="app-theme"
+      rel="stylesheet"
+      type="text/css"
+      href="light-theme.css"
+    />
+  </head>
+  <body>
+    <app-root>
+      <div class="app-init">
+        <p><b>Lex Fridman Podcast - Episodes Explorer</b></p>
+        <div class="app-spinner">
+          <img class="img1" src="assets/img/lfp-explorer-circle.webp" />
+          <img class="img2" src="assets/img/dot-revolve.svg" />
+        </div>
+        <p><b>Loading...</b></p>
+      </div>
+    </app-root>
+  </body>
+</html>

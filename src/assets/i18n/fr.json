@@ -1,0 +1,84 @@
+{
+    "about": {
+        "source": "Source sur GitHub",
+        "license": "Licence",
+        "updated": "Données mises à jour le",
+        "quote": {
+            "line1": "Monsieur le professeur, répondit le capitaine Nemo,",
+            "line2": "mon électricité n'est pas celle de tout le monde,",
+            "line3": "et c'est là tout ce que vous me permettrez de vous en dire.",
+            "ref1": "Jules Verne, Vingt Mille Lieues sous les mers",
+            "ref2": "Chapitre XII - 1869"
+        }
+    },
+    "home": {
+        "button-mostview": "12 épisodes les plus regardés",
+        "button-popular": "12 épisodes les plus populaires",
+        "button-random": "12 épisodes au hasard",
+        "button-recent": "12 derniers épisodes"
+    },
+    "menu": {
+        "home": "Accueil",
+        "guests": "Invités",
+        "titles": "Titres",
+        "tags": "Tags",
+        "dates": "Dates",
+        "statistics": "Statistiques",
+        "about": "À propos"
+    },
+    "search": {
+        "from": "De",
+        "to": "À",
+        "select-guests": "Sélectionner un ou plusieurs invités",
+        "select-tags": "Sélectionner un ou plusieurs tags",
+        "select-titles": "Sélectionner un ou plusieurs titres"
+    },
+    "tab": {
+        "home": "Lex Fridman Podcast - Episodes Explorer",
+        "guest": "Recherche d'épisodes par invités",
+        "title": "Recherche d'épisodes par titres",
+        "tag": "Recherche d'épisodes par tags",
+        "date": "Recherche d'épisodes par dates",
+        "statistics": "Statistiques",
+        "about": "À propos"
+    },
+    "primeng": {
+        "dayNamesMin": [
+            "Di",
+            "Lu",
+            "Ma",
+            "Me",
+            "Je",
+            "Ve",
+            "Sa"
+        ],
+        "monthNames": [
+            "Janvier",
+            "Février",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Août",
+            "Septembre",
+            "Octobre",
+            "Novembre",
+            "Décembre"
+        ],
+        "monthNamesShort": [
+            "janv.",
+            "févr.",
+            "mars",
+            "avr.",
+            "mai",
+            "juin",
+            "juill.",
+            "août",
+            "sept.",
+            "oct.",
+            "nov.",
+            "déc."
+        ]
+    }
+}

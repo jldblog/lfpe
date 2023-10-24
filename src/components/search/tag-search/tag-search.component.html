@@ -1,0 +1,22 @@
+<div class="app-searchby">
+  <p-panel header="{{ 'tab.tag' | translate }}">
+    <div class="app-search">
+      <i class="pi pi-tags"></i>
+      <p-multiSelect
+        [options]="tags"
+        [(ngModel)]="selectedTags"
+        (onChange)="onChange($event)"
+        (onFilter)="onFilter($event)"
+        defaultLabel="{{ 'search.select-tags' | translate }}"
+        optionLabel="value"
+        display="chip"
+        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
+      >
+        <ng-template let-tag pTemplate="item">
+          <div [innerHTML]="tag.value | highlight : filter"></div>
+        </ng-template>
+      </p-multiSelect>
+    </div>
+  </p-panel>
+  <app-results [videos]="videos"></app-results>
+</div>

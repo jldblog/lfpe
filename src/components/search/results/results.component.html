@@ -1,0 +1,22 @@
+<div class="app-results">
+  <!-- <div class="app-buttons">
+    <p-selectButton
+      [options]="displayOptions"
+      [(ngModel)]="displayValue"
+      optionLabel="icon"
+      (onChange)="onChangeDisplay()"
+    >
+      <ng-template let-item pTemplate>
+        <i [class]="item.icon"></i>
+      </ng-template>
+    </p-selectButton>
+  </div>
+  <app-results-table
+    [videos]="videos"
+    [hideTable]="hideTable"
+  ></app-results-table> -->
+  <app-results-dataview
+    [videos]="videos"
+    [hideTable]="hideTable"
+  ></app-results-dataview>
+</div>

@@ -1,0 +1,40 @@
+<header class="app-header">
+  <div class="app-tieredmenu">
+    <button
+      #btn
+      type="button"
+      pButton
+      icon="pi pi-bars"
+      (click)="menu.toggle($event)"
+    ></button>
+    <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
+  </div>
+  <div class="app-tabmenu">
+    <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+  </div>
+  <div class="app-setting">
+    <p-dropdown
+      [options]="langs"
+      [(ngModel)]="selectedLang"
+      (onChange)="onLangChange()"
+      optionLabel="code"
+      dropdownIcon="pi pi-globe"
+    >
+      <ng-template let-lang pTemplate="item">
+        <div>
+          <label style="display: inline-block; width: 1rem">{{
+            lang.code
+          }}</label>
+          - {{ lang.name }}
+        </div>
+      </ng-template>
+    </p-dropdown>
+    <p-toggleButton
+      [(ngModel)]="darkTheme"
+      [onIcon]="'pi pi-moon'"
+      [offIcon]="'pi pi-sun'"
+      (onChange)="onThemeChange()"
+      checked="darkTheme"
+    ></p-toggleButton>
+  </div>
+</header>

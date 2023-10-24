@@ -1,0 +1,49 @@
+@import "variables"
+
+.app-about
+    padding: 16px
+    .app-logo
+        height: 5rem
+    .app-row
+        margin: 16px 0 0 0
+    .app-center
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        margin: 16px 0 0 0
+        font-weight: bold
+    .app-source
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+    .app-quote
+        &-left
+            margin: 16px 0
+            text-align: left
+        &-right
+            margin: 16px 0
+            text-align: right
+    label
+        margin: 8px 0 6px 0
+    .title
+        font-size: 1.4rem
+        margin: 0 0 4px 0
+    .updated
+        margin: 0 0 4px 0
+
+// ===================================================
+@media screen and (max-width: $mobile-menu-breakpoint)
+    .app-about
+        .logo
+            height: 6rem
+        img
+            height: 5rem
+        label
+            margin: 6px 0 4px 0
+        .title
+            font-size: 1.2rem
+            margin: 0 0 2px 0
+        .title
+            margin: 0 0 2px 0

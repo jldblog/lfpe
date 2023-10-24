@@ -1,0 +1,22 @@
+<div class="app-searchby">
+  <p-panel header="{{ 'tab.guest' | translate }}">
+    <div class="app-search">
+      <i class="pi pi-users"></i>
+      <p-multiSelect
+        [options]="guests"
+        [(ngModel)]="selectedGuests"
+        (onChange)="onChange($event)"
+        (onFilter)="onFilter($event)"
+        defaultLabel="{{ 'search.select-guests' | translate }}"
+        optionLabel="name"
+        display="chip"
+        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
+      >
+        <ng-template let-guest pTemplate="item">
+          <div [innerHTML]="guest.name | highlight : filter"></div>
+        </ng-template>
+      </p-multiSelect>
+    </div>
+  </p-panel>
+  <app-results [videos]="videos"></app-results>
+</div>

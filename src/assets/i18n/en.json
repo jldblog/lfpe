@@ -1,0 +1,45 @@
+{
+    "about": {
+        "source": "Source on GitHub",
+        "license": "License",
+        "updated": "Data last updated on",
+        "quote": {
+            "line1": "Dr Aronnax, answered Captain Nemo,",
+            "line2": "my electricity is not the commonly used sort,",
+            "line3": "and that is all I wish to say on the matter.",
+            "ref1": "Jules Verne, Twenty Thousand Leagues under the Sea",
+            "ref2": "Chapitre XII - 1869 (translation by William Butcher)"
+        }
+    },
+    "home": {
+        "button-mostview": "The 12 most view episodes",
+        "button-popular": "The 12 most popular episodes",
+        "button-random": "12 random episodes",
+        "button-recent": "The last 12 episodes"
+    },
+    "menu": {
+        "home": "Home",
+        "guests": "Guests",
+        "titles": "Titles",
+        "tags": "Tags",
+        "dates": "Dates",
+        "statistics": "Statistics",
+        "about": "About"
+    },
+    "search": {
+        "from": "From",
+        "to": "To",
+        "select-guests": "Select one or more guests",
+        "select-tags": "Select one or more tags",
+        "select-titles": "Select one or more titles"
+    },
+    "tab": {
+        "home": "Lex Fridman Podcast - Episodes Explorer",
+        "guest": "Search episodes by guests",
+        "title": "Search episodes by titles",
+        "tag": "Search episodes by tags",
+        "date": "Search episodes by dates",
+        "statistics": "Statistics",
+        "about": "About"
+    }
+}

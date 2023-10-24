@@ -1,0 +1,41 @@
+<div class="app-searchby">
+  <p-panel header="{{ 'tab.home' | translate }}">
+    <div class="app-search">
+      <div class="app-homeselectbuttons">
+        <p-selectButton
+          [options]="choices"
+          [(ngModel)]="choiceCode"
+          optionLabel="label"
+          optionValue="code"
+          (onOptionClick)="onOptionClick()"
+        >
+          <ng-template let-item pTemplate>
+            {{ item.label | translate }}
+          </ng-template>
+        </p-selectButton>
+      </div>
+      <div class="app-homedropdown">
+        <p-dropdown
+          #homepdrop
+          [options]="choices"
+          [(ngModel)]="selectedChoice"
+          optionLabel="label"
+          (click)="onClick(selectedChoice.code)"
+          [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="flex align-items-center gap-2">
+              {{ selectedChoice!.label | translate }}
+            </div>
+          </ng-template>
+          <ng-template let-choice pTemplate="item">
+            <div class="flex align-items-center gap-2">
+              <div>{{ choice.label | translate }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+  </p-panel>
+  <app-results [videos]="videos"></app-results>
+</div>
