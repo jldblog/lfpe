@@ -73,7 +73,7 @@ The online demo of this project on GitHub is here : **<a href="https://jldblog.g
 <img src="docs/assets/img/lfpe-episode-description.png" width="600">
 </p>
 
-### On a smartphone (dark mode)
+#### On a smartphone (dark mode)
 
 <table align="center">
   <tr>
