@@ -1,4 +1,4 @@
-name: Update DB (update-db.yml)
+name: Update DB
 
 on:
   workflow_dispatch:
