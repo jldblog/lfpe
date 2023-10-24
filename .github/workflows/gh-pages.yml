@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
 permissions: write-all
 
 jobs:
