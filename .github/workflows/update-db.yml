@@ -1,0 +1,64 @@
+name: Update DB (update-db.yml)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+  push:
+    branches:
+      - main
+
+env:
+  YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
+permissions: write-all
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Date
+        run: date
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install ts-node
+        run: npm install -g ts-node
+
+      - name: Generate DB in ./tmp
+        run: npm run generatedb ../tmp
+
+      - name: "Checkout gh-pages branch"
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - run: cp -p ../tmp/db.json assets/db.json
+      - run: git config user.name github-actions
+      - run: git config user.email github-actions@github.com
+      - run: git add .
+      - run: git commit -m "generate-db `date +'%Y%m%d %H:%M:%S'`" || echo "Nothing to commit"
+      - run: git push || echo "Nothing to push"
