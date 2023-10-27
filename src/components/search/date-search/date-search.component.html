@@ -5,7 +5,7 @@
         <label>{{ "search.from" | translate }}</label>
         <p-calendar
           [(ngModel)]="dateFrom"
-          dateFormat="mm/yy"
+          dateFormat="yy-mm-dd"
           view="month"
           [minDate]="minDateFrom"
           [maxDate]="maxDateFrom"
@@ -18,7 +18,7 @@
         <label>{{ "search.to" | translate }}</label>
         <p-calendar
           [(ngModel)]="dateTo"
-          dateFormat="mm/yy"
+          dateFormat="yy-mm-dd"
           view="month"
           [minDate]="minDateTo"
           [maxDate]="maxDateTo"
