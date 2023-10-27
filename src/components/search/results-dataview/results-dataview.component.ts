@@ -45,7 +45,7 @@ export class ResultsDataViewComponent implements OnChanges, OnInit {
       this.rows = 20;
     }
 
-    console.log('rows', this.rows);
+    // console.log('rows', this.rows);
     // this.router.navigate([this.router.url])
   }
 

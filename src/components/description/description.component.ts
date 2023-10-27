@@ -135,8 +135,6 @@ export class DescriptionComponent implements OnInit {
             outline = matches[0];
         }
 
-        console.log(">>>>", outline)
-
         return outline;
     }
 
