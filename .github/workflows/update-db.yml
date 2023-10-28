@@ -3,9 +3,6 @@ name: Update DB
 on:
   schedule:
     - cron: "* */4 * * *"
-  push:
-    branches:
-      - main
 
 env:
   YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
