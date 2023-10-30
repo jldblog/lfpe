@@ -2,7 +2,7 @@ name: Update DB
 
 on:
   schedule:
-    - cron: "* */4 * * *"
+    - cron: "0 */4 * * *"
 
 env:
   YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
