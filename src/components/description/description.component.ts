@@ -12,6 +12,7 @@ import { Video } from 'src/domain/video';
 export class DescriptionComponent implements OnInit {
     private HEADERS: string[] = ['CONNECT', 'CORRECTIONS', 'EDIT NOTE', 'EPISODE LINKS',
         'PODCAST INFO', 'SOCIAL', 'SPONSORS', 'TRANSCRIPT'];
+    private IN_BOLD: string[] = ['Please support this channel', 'Please support this podcast'];
     protected video!: Video;
     protected cleanedDescription: string = '';
     protected info: string = '';
@@ -55,6 +56,7 @@ export class DescriptionComponent implements OnInit {
         result = this.removeTranscript(result, transcript);
         result = this.guestNameInBold(result);
         result = this.decorateHeaders(result);
+        result = this.boldify(result);
         result = this.urlify(result);
         result = result.trim();
         result = result.replaceAll('\n', '<br />');
@@ -80,7 +82,7 @@ export class DescriptionComponent implements OnInit {
 
         if (matches1) {
             info = matches1[0];
-            const regexp2 = /^(.*)( Please support this podcast.*)/;
+            const regexp2 = /^(.*)( Please support this .*)/;
             const matches2 = info.match(regexp2);
 
             if (matches2) {
@@ -163,6 +165,16 @@ export class DescriptionComponent implements OnInit {
 
     decorateHeader(text: string, header: string): string {
         return text.replaceAll(header, "<b>" + header + "</b>");
+    }
+
+    boldify(text: string) {
+        let result: string = text;
+
+        for (const inbold of this.IN_BOLD) {
+            result = result.replaceAll(inbold, "<b>" + inbold + "</b>");
+        }
+
+        return result;
     }
 
     urlify(text: string): string {
