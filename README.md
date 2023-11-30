@@ -1,3 +1,5 @@
+<a href="https://jldblog.github.io/lfpe/"><img src="https://img.shields.io/badge/Demo-github.com/jldblog/lfpe-green"></a>
+
 [![Update DB](https://github.com/jldblog/lfpe/actions/workflows/update-db.yml/badge.svg)](https://github.com/jldblog/lfpe/actions/workflows/update-db.yml)
 [![Build and Deploy](https://github.com/jldblog/lfpe/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/jldblog/lfpe/actions/workflows/gh-pages.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
