@@ -1,4 +1,4 @@
-<a href="https://jldblog.github.io/lfpe/"><img src="https://img.shields.io/badge/Demo-github.com/jldblog/lfpe-green"></a>
+<a href="https://jldblog.github.io/lfpe/"><img src="https://img.shields.io/badge/Demo-jldblog.github.io/lfpe-green"></a>
 
 [![Update DB](https://github.com/jldblog/lfpe/actions/workflows/update-db.yml/badge.svg)](https://github.com/jldblog/lfpe/actions/workflows/update-db.yml)
 [![Build and Deploy](https://github.com/jldblog/lfpe/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/jldblog/lfpe/actions/workflows/gh-pages.yml)
