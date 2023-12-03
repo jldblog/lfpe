@@ -5,10 +5,10 @@
         "updated": "Données mises à jour le",
         "quote": {
             "line1": "Monsieur le professeur, répondit le capitaine Nemo,",
-            "line2": "mon électricité n'est pas celle de tout le monde,",
-            "line3": "et c'est là tout ce que vous me permettrez de vous en dire.",
+            "line2": "mon électricité n’est pas celle de tout le monde,",
+            "line3": "et c’est là tout ce que vous me permettrez de vous en dire.",
             "ref1": "Jules Verne, Vingt Mille Lieues sous les mers",
-            "ref2": "Chapitre XII - 1869"
+            "ref2": "Chapitre XII – 1869"
         }
     },
     "home": {
@@ -34,11 +34,11 @@
         "select-titles": "Sélectionner un ou plusieurs titres"
     },
     "tab": {
-        "home": "Lex Fridman Podcast - Episodes Explorer",
-        "guest": "Recherche d'épisodes par invités",
-        "title": "Recherche d'épisodes par titres",
-        "tag": "Recherche d'épisodes par tags",
-        "date": "Recherche d'épisodes par dates",
+        "home": "Lex Fridman Podcast – Episodes Explorer",
+        "guest": "Recherche d’épisodes par invités",
+        "title": "Recherche d’épisodes par titres",
+        "tag": "Recherche d’épisodes par tags",
+        "date": "Recherche d’épisodes par dates",
         "statistics": "Statistiques",
         "about": "À propos"
     },
