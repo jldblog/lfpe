@@ -102,12 +102,6 @@ cd lfpe
 npm install
 ```
 
-And for running the script `src/scripts/generate-db.ts` we also need:
-
-```shell
-npm install -g ts-node
-```
-
 #### 3. Database generation
 
 The script `src/scripts/generate-db.ts` uses the <a href="https://developers.google.com/youtube/v3" target="_blank">Youtube Data API v3</a>.\
@@ -126,26 +120,26 @@ npm run generatedb
 You should obtain something like:
 
 ```text
-> lfpe@1.0 generatedb
-> ts-node-esm --transpile-only src/scripts/generate-db.ts
+> lfpe@1.0.1 generatedb
+> npx tsx src/scripts/generate-db.ts
 
-Found video: fUEjCXpOjPY
-Found video: aGOV5R7M1Js
-Found video: XbPHojL_61U
+Found video: VPaOy3G1-2A
+Found video: 2yHr9DPnSzk
+Found video: r4wLXNydzeY
 ...
 ...
 Add episode: 3
 Add episode: 2
 Add episode: 1
-395 episodes found
+402 episodes found
 Saved src/assets/db.json
 ```
 
-_Note (with a profound mathematical consideration):_
+_Note (with a deep mathematical consideration):_
 
 - _#84 episode is private, see <a href="https://www.reddit.com/r/lexfridman/comments/zmfznv/request_for_lex_to_make_a_public_statement_on_the/" target="_blank">here</a> why._
 - _#100 episode is <a href="https://www.youtube.com/watch?v=6I5I56uVvLw" target="_blank">on another channel</a>, but we added it in `generate-db.ts`._
-- _So it is normal if the script found for example 395 episodes even if the current last episode is #396 !_
+- _So it is normal if the script found for example 402 episodes even if the current last episode is #403 !_
 
 #### 4. Running the live development server
 
