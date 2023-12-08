@@ -14,7 +14,7 @@
     "buildtest": "ng build --configuration=production --base-href /test3/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "generatedb": "ts-node-esm --transpile-only src/scripts/generate-db.ts"
+    "generatedb": "npx tsx src/scripts/generate-db.ts"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +39,7 @@
     "rxjs": "~7.8.1",
     "tinyduration": "^3.3.0",
     "tslib": "^2.6.2",
+    "tsx": "^4.6.2",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
