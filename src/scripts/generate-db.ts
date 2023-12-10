@@ -121,26 +121,37 @@ async function save(videoIDs: string[]) {
     saveToJsonFile(DESTINATION_DIR + '/' + DB_FILE_NAME, videoDB, 0);
 }
 
+function specialCases(videoID: string, snippet: any) {
+    if (videoID === '6I5I56uVvLw') {
+        // #100 "Dr Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100" 
+        snippet.title = 'Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100';
+        snippet.description = snippet.description.replace('Timestamps', 'OUTLINE:');
+    }
+    else if (videoID === 'SFxIazwNP_0') {
+        // #279 "Alien Debate: Sara Walker and Lee Cronin | Lex Fridman Podcast #279"
+        snippet.title = "Sara Walker & Lee Cronin: Alien Debate | Lex Fridman Podcast #279";
+    }
+    else if (videoID === '4AWLcxTGZPA') {
+        // #332 "Kanye 'Ye' West Interview | Lex Fridman Podcast #332"
+        snippet.title = "Kanye 'Ye' West: Interview | Lex Fridman Podcast #332";
+    }
+    else if (videoID === '5Gk9gIpGvSE') {
+        // #339 "Climate Change Debate: Bjørn Lomborg and Andrew Revkin | Lex Fridman Podcast #339"
+        snippet.title = "Bjørn Lomborg and Andrew Revkin: Climate Change Debate | Lex Fridman Podcast #339";
+    }
+    else if (videoID === 'hLZ6PACCBy8') {
+        // #363 "B-Team Jiu Jitsu: Craig Jones, Nicky Rod, and Nicky Ryan | Lex Fridman Podcast #363"
+        snippet.title = "Craig Jones, Nicky Rod, and Nicky Ryan: B-Team Jiu Jitsu | Lex Fridman Podcast #363";
+    }
+}
+
 function saveVideoData(videoItems: any) {
     videoItems.forEach((item: any) => {
         var videoData: any = {};
         const snippet = item.snippet;
         const videoID = item.id;
 
-        // special cases
-        if (videoID === '_VPxEcT_Adc') {
-            // #42 original title : "Peter Norvig: Artificial Intelligence: A Modern Approach | Lex Fridman Podcast #42" 
-            // snippet.title = 'Peter Norvig: Artificial Intelligence, A Modern Approach | Lex Fridman Podcast #42';
-        }
-        else if (videoID === '6I5I56uVvLw') {
-            // #100 original title : "Dr Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100" 
-            snippet.title = 'Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100';
-            snippet.description = snippet.description.replace('Timestamps', 'OUTLINE:');
-        }
-        else if (videoID === '4AWLcxTGZPA') {
-            // #332 original title : "Kanye 'Ye' West Interview | Lex Fridman Podcast #332"
-            snippet.title = "Kanye 'Ye' West: Interview | Lex Fridman Podcast #332"
-        }
+        specialCases(videoID, snippet);
 
         const titleData = parseTitle(snippet.title);
 
