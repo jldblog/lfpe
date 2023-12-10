@@ -8,7 +8,7 @@
   <tr>
     <td>
       <p align="center">
-        <img src="docs/assets/img/lfpe-logo.webp" width="80">
+        <img src="docs/assets/img/lfpe-logo.webp" width="80px">
       </p>
     </td>
     <td>
