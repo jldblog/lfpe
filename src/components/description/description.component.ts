@@ -54,7 +54,6 @@ export class DescriptionComponent implements OnInit {
         result = this.removeGuestInfo(description, info);
         result = this.removeOutline(result, outline);
         result = this.removeTranscript(result, transcript);
-        result = this.guestNameInBold(result);
         result = this.decorateHeaders(result);
         result = this.boldify(result);
         result = this.urlify(result);
@@ -69,10 +68,7 @@ export class DescriptionComponent implements OnInit {
     }
 
     guestNameInBold(text: string): string {
-        let result: string = text;
-        result = result.replace(this.video.guest, '<b>' + this.video.guest + '</b>');
-
-        return result;
+        return text.replace(this.video.guest, '<b>' + this.video.guest + '</b>');;
     }
 
     extractGuestInfo(text: string): string {
