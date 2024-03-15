@@ -143,6 +143,10 @@ function specialCases(videoID: string, snippet: any) {
         // #363 "B-Team Jiu Jitsu: Craig Jones, Nicky Rod, and Nicky Ryan | Lex Fridman Podcast #363"
         snippet.title = "Craig Jones, Nicky Rod, and Nicky Ryan: B-Team Jiu Jitsu | Lex Fridman Podcast #363";
     }
+    else if (videoID === '5t1vTLU7s40') {
+        // #416 "Yann Lecun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI | Lex Fridman Podcast #416"
+        snippet.title = "Yann LeCun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI | Lex Fridman Podcast #416";
+    }
 }
 
 function saveVideoData(videoItems: any) {
