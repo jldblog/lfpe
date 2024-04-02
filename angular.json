@@ -99,10 +99,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lfpe:build:production"
+              "buildTarget": "lfpe:build:production"
             },
             "development": {
-              "browserTarget": "lfpe:build:development"
+              "buildTarget": "lfpe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -110,7 +110,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lfpe:build"
+            "buildTarget": "lfpe:build"
           }
         },
         "test": {
