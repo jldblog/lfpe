@@ -1,8 +1,8 @@
 <a href="https://jldblog.github.io/lfpe/"><img src="https://img.shields.io/badge/Demo-jldblog.github.io/lfpe-green"></a>
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [![Update DB](https://github.com/jldblog/lfpe/actions/workflows/update-db.yml/badge.svg)](https://github.com/jldblog/lfpe/actions/workflows/update-db.yml)
 [![Build and Deploy](https://github.com/jldblog/lfpe/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/jldblog/lfpe/actions/workflows/gh-pages.yml)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 <table align="center">
   <tr>
@@ -92,7 +92,7 @@ The online demo of this project on GitHub is here : **<a href="https://jldblog.g
 
 #### 1. Prerequisites
 
-We assume that <a href="https://nodejs.org/en/download" target="_blank">Node.js 18+</a> and <a href="https://angular.io/guide/setup-local" target="_blank">Angular 16</a> are installed.
+We assume that <a href="https://nodejs.org/en/download" target="_blank">Node.js 18+</a> and <a href="https://angular.io/guide/setup-local" target="_blank">Angular 17</a> are installed.
 
 #### 2. Installation
 
