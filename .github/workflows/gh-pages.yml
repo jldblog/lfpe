@@ -46,7 +46,7 @@ jobs:
         run: npm run generatedb
 
       - name: Build prod
-        run: npm run buildprod
+        run: npm run build:prod
 
       - name: Archive build
         if: success()
