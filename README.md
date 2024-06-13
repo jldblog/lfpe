@@ -92,7 +92,7 @@ The online demo of this project on GitHub is here : **<a href="https://jldblog.g
 
 #### 1. Prerequisites
 
-We assume that <a href="https://nodejs.org/en/download" target="_blank">Node.js 18+</a> and <a href="https://angular.io/guide/setup-local" target="_blank">Angular 17</a> are installed.
+We assume that <a href="https://nodejs.org/en/download" target="_blank">Node.js 18+</a> is installed.
 
 #### 2. Installation
 
