@@ -3,7 +3,6 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Video } from 'src/domain/video';
 import { DescriptionComponent } from '../../description/description.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-results-dataview',

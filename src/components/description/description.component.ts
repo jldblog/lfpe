@@ -22,8 +22,7 @@ export class DescriptionComponent implements OnInit {
     protected publishedDate!: Date;
     protected descriptionEmpty: boolean = false;
 
-    constructor(public dialogRef: DynamicDialogRef, public config: DynamicDialogConfig,
-        private translateService: TranslateService) {
+    constructor(public config: DynamicDialogConfig, private translateService: TranslateService) {
         this.lang = translateService.currentLang;
     }
 

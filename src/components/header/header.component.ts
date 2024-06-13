@@ -15,7 +15,7 @@ interface Lang {
   styleUrls: ['./header.component.sass']
 })
 
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   protected langs: Lang[] = [{ code: "en", name: "English" }, { code: "fr", name: "Français" }];
   protected selectedLang!: Lang;
   protected items: MenuItem[] = [];
@@ -100,12 +100,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.translateService.stream('primeng').subscribe(data => {
       this.primeConfig.setTranslation(data);
     });
-  }
-
-  ngOnDestroy() {
-    // if (this.subscription) {
-    //   this.subscription.unsubscribe();
-    // }
   }
 
   private processMenuTranslation(items: MenuItem[]) {

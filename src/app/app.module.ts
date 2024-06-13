@@ -42,7 +42,6 @@ export function initApp(appInitService: InitService) {
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     AppRoutingModule,
