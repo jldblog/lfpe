@@ -60,6 +60,7 @@ export class DescriptionComponent implements OnInit {
         result = result.replaceAll('\n', '<br />');
 
         this.info = this.guestNameInBold(info);
+        this.info = this.urlify(this.info);
         this.outline = this.decorateOutline(outline);
         this.transcript = this.decorateTranscript(transcript);
 
