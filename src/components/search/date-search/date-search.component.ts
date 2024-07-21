@@ -28,17 +28,33 @@ export class DateSearchComponent implements OnInit {
   }
 
   private initDates() {
+    const now: Date = new Date();
     this.minDateFrom = this.startOfMonthDate(this.FIRST_PODCAST_DATE);
-    this.maxDateTo = this.endOfMonthDate(new Date());
+    this.maxDateFrom = this.endOfMonthDate(now);
+    this.minDateTo = this.startOfMonthDate(now);
+    this.maxDateTo = this.endOfMonthDate(now);
     this.dateFrom = this.minDateFrom;
     this.dateTo = this.maxDateTo;
   }
 
-  protected onDateChange() {
+  protected onDateFromChange() {
     this.dateFrom = this.startOfMonthDate(this.dateFrom);
+    this.adjustMinMaxDates();
+    this.setVideos()
+  }
+
+  protected onDateToChange() {
     this.dateTo = this.endOfMonthDate(this.dateTo);
-    this.maxDateFrom = this.dateTo;
-    this.minDateTo = this.dateFrom;
+    this.adjustMinMaxDates();
+    this.setVideos()
+  }
+
+  private adjustMinMaxDates() {
+    this.maxDateFrom = this.startOfMonthDate(this.dateTo);
+    this.minDateTo = this.endOfMonthDate(this.dateFrom);
+  }
+
+  private setVideos() {
     this.videos = this.dbService.getVideosByDates(this.dateFrom, this.dateTo, true);
   }
 
