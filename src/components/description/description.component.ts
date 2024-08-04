@@ -10,9 +10,7 @@ import { Video } from 'src/domain/video';
 })
 
 export class DescriptionComponent implements OnInit {
-    private HEADERS: string[] = ['CONNECT', 'CORRECTIONS', 'EDIT NOTE', 'EPISODE LINKS',
-        'PODCAST INFO', 'SOCIAL', 'SPONSORS', 'TRANSCRIPT'];
-    private IN_BOLD: string[] = ['Please support this channel', 'Please support this podcast'];
+    private IN_BOLD: string[] = ['Check out our sponsors', 'Please support this channel', 'Please support this podcast', 'Thank you for listening'];
     protected video!: Video;
     protected cleanedDescription: string = '';
     protected info: string = '';
@@ -44,17 +42,19 @@ export class DescriptionComponent implements OnInit {
     }
 
     descriptionCleaner(description: string): string {
-        let result: string = '';
+        let result = this.miscReplacements(description);
 
-        const info = this.extractGuestInfo(description);
-        const outline = this.extractOutline(description);
-        const transcript = this.extractTranscript(description);
+        const info = this.extractGuestInfo(result);
+        const outline = this.extractOutline(result);
+        const transcript = this.extractTranscript(result);
 
-        result = this.removeGuestInfo(description, info);
+        result = this.removeGuestInfo(result, info);
         result = this.removeOutline(result, outline);
         result = this.removeTranscript(result, transcript);
-        result = this.decorateHeaders(result);
+
+        result = this.asteriskifyHeaders(result);
         result = this.boldify(result);
+        result = this.inBold(result);
         result = this.urlify(result);
         result = result.trim();
         result = result.replaceAll('\n', '<br />');
@@ -65,6 +65,10 @@ export class DescriptionComponent implements OnInit {
         this.transcript = this.decorateTranscript(transcript);
 
         return result;
+    }
+
+    miscReplacements(text: string): string {
+        return text.replace(/\n\*Transcript:\*\n/, '\nTRANSCRIPT:\n');
     }
 
     guestNameInBold(text: string): string {
@@ -95,7 +99,7 @@ export class DescriptionComponent implements OnInit {
 
     extractTranscript(text: string): string {
         let transcript: string = '';
-        const regexp = /TRANSCRIPT:\n(https:.*\n)\n/;
+        const regexp = /\*?TRANSCRIPT:\*?\n(https:.*\n)\n/;
         const matches = text.match(regexp);
 
         if (matches) {
@@ -126,7 +130,7 @@ export class DescriptionComponent implements OnInit {
 
     extractOutline(text: string): string {
         let outline: string = '';
-        const regexp = /OUTLINE:\n(.*\n)+\n/;
+        const regexp = /\*?OUTLINE:\*?\n(.*\n)+?\n/;
         const matches = text.match(regexp);
 
         if (matches) {
@@ -142,6 +146,7 @@ export class DescriptionComponent implements OnInit {
 
     decorateOutline(outline: string): string {
         outline = this.urlifyChapters(outline);
+        outline = outline.replaceAll('*', '');
         outline = this.decorateHeader(outline, 'OUTLINE:');
         outline = outline.trim();
         outline = outline.replaceAll('\n', '<br />');
@@ -149,21 +154,19 @@ export class DescriptionComponent implements OnInit {
         return outline;
     }
 
-    decorateHeaders(text: string): string {
-        let result: string = text;
-
-        for (const header of this.HEADERS) {
-            result = this.decorateHeader(result, header);
-        }
-
-        return result;
-    }
-
     decorateHeader(text: string, header: string): string {
         return text.replaceAll(header, "<b>" + header + "</b>");
     }
 
+    asteriskifyHeaders(text: string) {
+        return text.replaceAll(/\n(.*:)\n/g, '\n*$1*\n');
+    }
+
     boldify(text: string) {
+        return text.replace(/\*(.*)\*/g, '<b>$1</b>');
+    }
+
+    inBold(text: string) {
         let result: string = text;
 
         for (const inbold of this.IN_BOLD) {
@@ -174,9 +177,7 @@ export class DescriptionComponent implements OnInit {
     }
 
     urlify(text: string): string {
-        const regexp = /(https?:\/\/[^\s]+)/g;
-
-        return text.replace(regexp, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
+        return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
     }
 
     urlifyChapters(text: string): string {
