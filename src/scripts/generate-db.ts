@@ -147,6 +147,10 @@ function specialCases(videoID: string, snippet: any) {
         // #416 "Yann Lecun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI | Lex Fridman Podcast #416"
         snippet.title = "Yann LeCun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI | Lex Fridman Podcast #416";
     }
+    else if (videoID === "qCbfTN-caFI") {
+        // #442 "Donald Trump Interview | Lex Fridman Podcast #442"
+        snippet.title = "Donald Trump: Interview | Lex Fridman Podcast #442"
+    }
 }
 
 function saveVideoData(videoItems: any) {
