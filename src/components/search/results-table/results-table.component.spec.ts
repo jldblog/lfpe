@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ResultsTableComponent } from './results-table.component';
 
 describe('ResultsTableComponent', () => {

@@ -34,7 +34,7 @@ export class DatabaseService {
     }
   }
 
-  public getGuests(): Guest[] {
+  public getAllGuests(): Guest[] {
     let guests: Guest[] = [];
     let names: string[] = [];
 

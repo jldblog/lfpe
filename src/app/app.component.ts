@@ -10,6 +10,8 @@ import { InitService } from 'src/services/init.service';
 })
 
 export class AppComponent implements AfterViewInit {
+  public title = 'lfpe';
+
   constructor(private initService: InitService, private messageService: MessageService) { }
 
   ngAfterViewInit(): void {

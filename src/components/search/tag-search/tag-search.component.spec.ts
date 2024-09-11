@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TagSearchComponent } from './tag-search.component';
 
 describe('TagSearchComponent', () => {

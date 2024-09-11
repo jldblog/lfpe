@@ -28,7 +28,6 @@ export class RoundSearchComponent implements OnInit {
 
     this.guests = this.guests.sort(Guest.guestsComparator);
     this.videos = this.videos.sort(Video.videosByRoundComparator);
-
     this.selectedVideos = this.videos;
   }
 

@@ -10,16 +10,18 @@ import { DatabaseService } from 'src/services/database.service';
 })
 
 export class GuestSearchComponent implements OnInit {
-  protected videos: Video[] = [];
   protected guests: Guest[] = [];
+  protected videos: Video[] = [];
   protected selectedGuests: Guest[] = [];
+  protected selectedVideos: Video[] = [];
   protected filter: string = '';
 
   constructor(private dbService: DatabaseService) { }
 
   ngOnInit(): void {
-    this.guests = this.dbService.getGuests();
+    this.guests = this.dbService.getAllGuests();
     this.videos = this.dbService.getAllVideos();
+    this.selectedVideos = this.videos;
   }
 
   protected reset(): void {
@@ -27,16 +29,12 @@ export class GuestSearchComponent implements OnInit {
   }
 
   protected onChange(event: any): void {
-    let videos: Video[] = [];
-
     if (this.selectedGuests.length == 0) {
-      videos = this.dbService.getAllVideos();
+      this.selectedVideos = this.videos;
     }
     else {
-      videos = this.dbService.getVideosByGuests(this.selectedGuests);
+      this.selectedVideos = this.dbService.getVideosByGuests(this.selectedGuests);
     }
-
-    this.videos = videos;
   }
 
   protected onFilter(event: any): void {

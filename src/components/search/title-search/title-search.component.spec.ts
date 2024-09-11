@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TitleSearchComponent } from './title-search.component';
 
 describe('TitleSearchComponent', () => {
