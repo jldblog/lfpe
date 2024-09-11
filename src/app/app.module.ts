@@ -19,6 +19,7 @@ import { HomeModule } from 'src/components/home/home.module';
 import { DateSearchModule } from 'src/components/search/date-search/date-search.module';
 import { GuestSearchModule } from 'src/components/search/guest-search/guest-search.module';
 import { ResultsModule } from 'src/components/search/results/results.module';
+import { RoundSearchModule } from 'src/components/search/round-search/round-search.module';
 import { TagSearchModule } from 'src/components/search/tag-search/tag-search.module';
 import { TitleSearchModule } from 'src/components/search/title-search/title-search.module';
 import { StatisticsModule } from 'src/components/statistics/statistics.module';
@@ -66,6 +67,7 @@ export function initApp(appInitService: InitService) {
     HomeModule,
     PipesModule,
     ResultsModule,
+    RoundSearchModule,
     TagSearchModule,
     TitleSearchModule,
     StatisticsModule,

@@ -45,6 +45,12 @@ export class HeaderComponent implements OnInit {
       skipLocationChange: true,
     },
     {
+      label: 'menu.rounds',
+      icon: 'pi pi-circle',
+      routerLink: '/rounds',
+      skipLocationChange: true,
+    },
+    {
       label: 'menu.tags',
       icon: 'pi pi-tag',
       routerLink: '/tags',

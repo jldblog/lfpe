@@ -112,6 +112,38 @@ export class DatabaseService {
     return result;
   }
 
+  public getRoundsMap(): Map<Guest, Video[]> {
+    let tmpMap: Map<string, Video[]> = new Map();
+
+    if (this.data && this.data.videos) {
+      this.data.videos.forEach((video: Video) => {
+        let name = video.guest;
+
+        if (name) {
+          if (tmpMap.has(name)) {
+            tmpMap.get(name)!.push(video);
+          }
+          else {
+            let value: Video[] = [];
+            value.push(video);
+            tmpMap.set(name, value);
+          }
+        }
+      });
+    }
+
+    let resultMap: Map<Guest, Video[]> = new Map();
+
+    tmpMap.forEach(function (value, key) {
+      if (value.length != 1) {
+        let guest: Guest = { name: key };
+        resultMap.set(guest, value);
+      }
+    });
+
+    return resultMap;
+  }
+
   public getAllVideos(): Video[] {
     let videos: Video[] = [];
 

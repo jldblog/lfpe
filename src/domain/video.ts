@@ -27,13 +27,22 @@ export class Video {
     static videosByFavoriteCountComparator(video1: Video, video2: Video): number {
         return Statistics.favoriteCountComparator(video1.statistics, video2.statistics);
     }
+
+    static videosByRoundComparator(video1: Video, video2: Video): number {
+        if (video2.guest == video1.guest) {
+            return (video2.episode ? video2.episode : 0) - (video1.episode ? video1.episode : 0);
+        }
+        else {
+            return video1.guest.localeCompare(video2.guest, 'en');
+        }
+    }
 }
 
 export class Tag {
     value!: string;
 
     static sortTagComparator(t1: Tag, t2: Tag): number {
-        return t1.value.localeCompare(t2.value);
+        return t1.value.localeCompare(t2.value, 'en');
     }
 }
 
