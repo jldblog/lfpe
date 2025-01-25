@@ -66,6 +66,9 @@ export class ResultsComponent implements OnChanges, OnInit {
       header: video.originalTitle,
       data: JSON.stringify(video),
       width: "var(--descriptionWidth)",
+      modal: true,
+      closable: true,
+      closeOnEscape: true,
     });
   }
 
@@ -86,4 +89,3 @@ export class ResultsComponent implements OnChanges, OnInit {
     this.screenWidth = window.innerWidth;
   }
 }
-

@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { TieredMenuModule } from 'primeng/tieredmenu';
-import { ToggleButtonModule } from 'primeng/togglebutton';
+import { MenuModule } from 'primeng/menu';
+import { Menubar } from 'primeng/menubar';
+import { Select } from 'primeng/select';
+import { TabsModule } from 'primeng/tabs';
 import { HeaderRoutingModule } from './header-routing.module';
 import { HeaderComponent } from './header.component';
 
@@ -21,10 +21,10 @@ import { HeaderComponent } from './header.component';
     TranslateModule,
     // PrimeNG
     ButtonModule,
-    DropdownModule,
-    TabMenuModule,
-    TieredMenuModule,
-    ToggleButtonModule
+    Menubar,
+    MenuModule,
+    Select,
+    TabsModule,
   ],
   exports: [
     HeaderComponent,

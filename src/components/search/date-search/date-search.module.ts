@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { CalendarModule } from 'primeng/calendar';
+import { DatePicker } from 'primeng/datepicker';
 import { PanelModule } from 'primeng/panel';
 import { ResultsModule } from 'src/components/search/results/results.module';
 import { DateSearchComponent } from './date-search.component';
@@ -18,7 +18,7 @@ import { DateSearchComponent } from './date-search.component';
     // APP
     ResultsModule,
     // PrimeNG
-    CalendarModule,
+    DatePicker,
     PanelModule
   ],
   exports: [

@@ -1,12 +1,11 @@
 <p-panel header="{{ 'tab.about' | translate }}">
-  <div class="app-about text-color-secondary">
+  <div class="app-about text-muted-color">
     <div class="app-center">
       <img class="app-logo" src="assets/img/lfpe-logo.webp" />
     </div>
     <div class="app-center">
       <label class="title">{{ title1 }}</label>
       <label class="title">{{ title2 }}</label>
-      <!-- <label style="font-size: 1.3rem">{{ name }}</label> -->
       <label>Version {{ version }}<br /></label>
       <label *ngIf="build">
         <label>Build {{ build | date : "yyyyMMddHHmmss" : "UTC" }}</label>
@@ -19,25 +18,22 @@
       </label>
       <label class="app-source">
         {{ "about.source" | translate }}&nbsp;
-        <!-- <i class="pi pi-github" style="font-size: 1.5rem"></i>&nbsp; -->
-        <a href="{{ url }}">{{ url }}</a>
+        <a href="{{ url }}" class="app-a">{{ url }}</a>
       </label>
       <label>
         {{ "about.license" | translate }}
-        <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">
+        <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="app-a">
           GNU GPLv3
         </a>
       </label>
     </div>
     <div class="app-quote-right">
-      <i
-        >{{ "about.quote.line1" | translate }}<br />{{
-          "about.quote.line2" | translate
+      <i>{{ "about.quote.line1" | translate }}<br />{{
+        "about.quote.line2" | translate
         }}<br />
-        {{ "about.quote.line3" | translate }}<br /> </i
-      ><br />
+        {{ "about.quote.line3" | translate }}<br /> </i><br />
       {{ "about.quote.ref1" | translate }}<br />{{
-        "about.quote.ref2" | translate
+      "about.quote.ref2" | translate
       }}
     </div>
   </div>

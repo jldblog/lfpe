@@ -7,11 +7,10 @@
         [(ngModel)]="selectedTitles"
         (onChange)="onChange()"
         (onFilter)="onFilter($event)"
-        defaultLabel="{{ 'search.select-titles' | translate }}"
+        placeholder="{{ 'search.select-titles' | translate }}"
         optionLabel="title"
         display="chip"
-        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
-      >
+        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }">
         <ng-template let-title pTemplate="item">
           <div [innerHTML]="title.title | highlight : filter"></div>
         </ng-template>

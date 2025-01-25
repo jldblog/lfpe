@@ -7,33 +7,27 @@
           [(ngModel)]="choiceCode"
           optionLabel="label"
           optionValue="code"
-          (onOptionClick)="onOptionClick()"
-        >
-          <ng-template let-item pTemplate>
+          (onOptionClick)="onOptionClick()">
+          <ng-template let-item pTemplate="item">
             {{ item.label | translate }}
           </ng-template>
         </p-selectButton>
       </div>
-      <div class="app-homedropdown">
-        <p-dropdown
+      <div class="app-homeselect">
+        <p-select
           #homepdrop
           [options]="choices"
           [(ngModel)]="selectedChoice"
           optionLabel="label"
           (click)="onClick(selectedChoice.code)"
-          [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
-        >
+          [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }">
           <ng-template pTemplate="selectedItem">
-            <div class="flex align-items-center gap-2">
-              {{ selectedChoice!.label | translate }}
-            </div>
+            <div>{{ selectedChoice!.label | translate }}</div>
           </ng-template>
           <ng-template let-choice pTemplate="item">
-            <div class="flex align-items-center gap-2">
-              <div>{{ choice.label | translate }}</div>
-            </div>
+            <div>{{ choice.label | translate }}</div>
           </ng-template>
-        </p-dropdown>
+        </p-select>
       </div>
     </div>
   </p-panel>

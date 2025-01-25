@@ -1,17 +1,13 @@
 <div
   class="app-result-dataview"
-  [style.display]="!hideTable ? 'none' : 'inline-flex'"
->
-  <div class="app-dataview border-1 surface-border border-round shadow-2">
+  [style.display]="!hideTable ? 'none' : 'inline-flex'">
+  <div class="app-dataview">
     <div
       class="app-cell"
       *ngFor="let video of videosSlice2"
-      (click)="onShowDescriptionDialog(video)"
-    >
-      <img class="shadow-4 border-round" [src]="video.thumbnails.medium.url" />
-      <p lang="en">
-        {{ video.shortTitle }}
-      </p>
+      (click)="onShowDescriptionDialog(video)">
+      <img class="bg-white dark:bg-gray-800 rounded-lg ring shadow-xl ring-gray-900/5" [src]="video.thumbnails.medium.url" />
+      <p lang="en">{{ video.shortTitle }}</p>
     </div>
   </div>
   <div class="app-paginator">
@@ -21,7 +17,6 @@
       [rows]="rows"
       [totalRecords]="videos.length"
       [alwaysShow]="false"
-      [showPageLinks]="showPageLinks"
-    ></p-paginator>
+      [showPageLinks]="showPageLinks"></p-paginator>
   </div>
 </div>

@@ -1,42 +1,45 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+
 @import "variables"
 
 $roboto-font-path: "~roboto-fontface/fonts" !default
 @import "roboto-fontface/css/roboto/sass/roboto-fontface"
 
 html
-    font-family: 'Roboto', sans-serif
-    font-size: 16px
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
 #root
-    display: flex
-    justify-content: center
+  display: flex
+  justify-content: center
 main
-    width: 100%
+  width: 100%
 .wrapper
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    width: var(--wrapperWith)
-a
-    font-weight: bold
-    color: var(--text-color-secondary)
-    &:hover
-        color: var(--primary-color)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: var(--wrapperWith)
 
 // APP
 app-home, app-about,app-footer,app-header,app-statistics
-    width: 100%
+  width: 100%
 app-results,app-date-search,app-guest-search,app-tag-search,app-title-search
-    width: 100%
+  width: 100%
+.app-a
+  font-weight: bold
+  &:hover
+    color: red
 
 // PrimeNG
 .p-panel .p-panel-content
-    padding: 0
+  padding: 0
 
 // ===================================================
 @media screen and (max-width: $mobile-menu-breakpoint)
-    html
-        --wrapperWith: 100vw
-        font-size: 14px
+  html
+    --wrapperWith: 100vw
+    font-size: 14px
     .p-panel .p-panel-header
-        padding: 0.5rem
+      padding: 0.5rem
