@@ -35,9 +35,8 @@
               ]
             },
             "styles": [
+              "src/styles.sass",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeflex/primeflex.css",
               {
                 "input": "src/assets/themes/light-theme.sass",
                 "bundleName": "light-theme",
@@ -47,8 +46,7 @@
                 "input": "src/assets/themes/dark-theme.sass",
                 "bundleName": "dark-theme",
                 "inject": false
-              },
-              "src/styles.sass"
+              }
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [

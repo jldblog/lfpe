@@ -1,37 +1,43 @@
 @import "variables"
 
 .app-header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  align-content: center
+  margin-bottom: 16px
+  gap: 0 8px
+  .app-menu
     display: flex
     flex-direction: row
-    justify-content: space-between
     align-items: center
+    justify-content: left
     align-content: center
-    margin-bottom: 16px
     width: 100%
-    gap: 0 8px
-    .app-tieredmenu
-        display: flex
-        flex-direction: row
-        align-items: center
-        justify-content: left
-        align-content: center
-        width: 100%
-        display: none
-        font-size: 8px
-    .app-tabmenu
-        flex-direction: row
-        align-items: center
-        justify-content: left
-        display: inline
-    .app-setting
-        display: grid
-        grid-template-columns: 1fr 0fr
-        column-gap: 1em
+    display: none
+  .app-menubar
+    flex-direction: row
+    align-items: center
+    justify-content: left
+    display: inline
+    width: 100%
+  .app-setting
+    display: grid
+    grid-template-columns: 1fr 0fr
+    align-items: center
+    column-gap: 0.5em
+  .app-darkmode
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    margin: 0 8px
 
 // ===================================================
 @media screen and (max-width: $mobile-menu-breakpoint)
-    .app-header
-        .app-tieredmenu
-            display: inline-flex
-        .app-tabmenu
-            display: none
+  .app-header
+    margin: 8px 8px
+    .app-menu
+      display: inline
+    .app-menubar
+      display: none

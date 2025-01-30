@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import localeFr from '@angular/common/locales/fr';
 import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,8 +9,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
-import { MessagesModule } from 'primeng/messages';
+import { Message } from 'primeng/message';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { Toast } from 'primeng/toast';
 import { AboutModule } from 'src/components/about/about.module';
 import { DescriptionModule } from 'src/components/description/description.module';
 import { FooterModule } from 'src/components/footer/footer.module';
@@ -28,6 +29,9 @@ import { DatabaseService } from 'src/services/database.service';
 import { InitService } from 'src/services/init.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { ButtonModule } from 'primeng/button';
+
 registerLocaleData(localeFr);
 
 export function createTranslateLoader(http: HttpClient) {
@@ -49,7 +53,6 @@ export function initApp(appInitService: InitService) {
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -72,8 +75,10 @@ export function initApp(appInitService: InitService) {
     TitleSearchModule,
     StatisticsModule,
     // PrimeNG
-    MessagesModule,
+    ButtonModule, // TEST
+    Message,
     ScrollTopModule,
+    Toast,
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -81,6 +86,7 @@ export function initApp(appInitService: InitService) {
     DatabaseService,
     DialogService,
     MessageService,
+    provideHttpClient(),
     { provide: APP_INITIALIZER, useFactory: initApp, deps: [InitService], multi: true },
     { provide: LOCALE_ID, useValue: 'fr-FR' }
   ],

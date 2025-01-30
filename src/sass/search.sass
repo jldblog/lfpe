@@ -1,47 +1,49 @@
 @import "variables"
 
 .app-searchby
-    // 
+  //
 .app-search
+  display: flex
+  flex-direction: row
+  align-content: center
+  justify-content: center
+  align-items: center
+  gap: 0 8px
+  font-weight: bold
+  margin-top: 0px
+  padding: 0 0 8px 0
+  .app-datepicker
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    gap: 0px 10px
+    margin: 0 16px
+    .pi
+      font-size: 20px
+  .app-homeselectbuttons
     display: flex
     flex-direction: row
     align-content: center
     justify-content: center
     align-items: center
-    gap: 0 8px
-    font-weight: bold
-    margin-top: 0px
-    padding: 0 0 8px 0
-    .app-date
-        display: flex
-        flex-direction: row
-        flex-wrap: wrap
-        justify-content: center
-        align-items: center
-        gap: 0px 10px
-        margin: 0 16px
-    .pi
-        font-size: 20px
-    .app-homeselectbuttons
-        display: flex
-        flex-direction: row
-        align-content: center
-        justify-content: center
-        align-items: center
-        display: inline-flex
-    .app-homedropdown
-        display: flex
-        flex-direction: row
-        align-content: center
-        justify-content: center
-        align-items: center
-        display: none
+    display: inline-flex
+  .app-homeselect
+    display: flex
+    flex-direction: row
+    align-content: center
+    justify-content: center
+    align-items: center
+    display: none
 
 // ======================================================
 @media screen and (max-width: $mobile-choices-breakpoint)
-    .app-search
-        padding: 4px 4px
-        .app-homeselectbuttons
-            display: none
-        .app-homedropdown
-            display: inline-flex
+  .app-searchby
+    margin: 0 8px
+  .app-search
+    padding: 4px 4px
+    .app-homeselectbuttons
+      display: none
+    .app-homeselect
+      display: inline-flex

@@ -8,7 +8,6 @@ import { PaginatorModule } from 'primeng/paginator';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
 import { ResultsDataViewModule } from '../results-dataview/results-dataview.module';
-import { ResultsTableModule } from '../results-table/results-table.module';
 import { ResultsComponent } from './results.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { ResultsComponent } from './results.component';
     TranslateModule,
     // APP
     ResultsDataViewModule,
-    ResultsTableModule,
     // PrimeNG
     ButtonModule,
     DataViewModule,

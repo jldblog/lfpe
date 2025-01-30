@@ -7,11 +7,10 @@
         [(ngModel)]="selectedGuests"
         (onChange)="onChange($event)"
         (onFilter)="onFilter($event)"
-        defaultLabel="{{ 'search.select-guests' | translate }}"
+        placeholder="{{ 'search.select-guests' | translate }}"
         optionLabel="name"
         display="chip"
-        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
-      >
+        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }">
         <ng-template let-guest pTemplate="item">
           <div [innerHTML]="guest.name | highlight : filter"></div>
         </ng-template>

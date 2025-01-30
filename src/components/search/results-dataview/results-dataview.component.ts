@@ -31,9 +31,6 @@ export class ResultsDataViewComponent implements OnChanges, OnInit {
   onResize() {
     this.screenWidth = window.innerWidth;
     this.adjustPaginator();
-
-    // console.log('onResize', this.screenWidth, this.screenHeight);
-    // this.adjustRow();
   }
 
   private adjustRow() {
@@ -43,17 +40,12 @@ export class ResultsDataViewComponent implements OnChanges, OnInit {
     else {
       this.rows = 20;
     }
-
-    // console.log('rows', this.rows);
-    // this.router.navigate([this.router.url])
   }
 
   constructor(private dialogService: DialogService, private translateService: TranslateService) {
     this.lang = translateService.currentLang;
     this.screenWidth = window.innerWidth;
     this.adjustPaginator();
-
-    // this.adjustRow();
   }
 
   ngOnInit(): void {
@@ -86,6 +78,9 @@ export class ResultsDataViewComponent implements OnChanges, OnInit {
       header: video.originalTitle,
       data: JSON.stringify(video),
       width: "var(--descriptionWidth)",
+      modal: true,
+      closable: true,
+      closeOnEscape: true,
     });
   }
 

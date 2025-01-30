@@ -7,11 +7,10 @@
         [(ngModel)]="selectedTags"
         (onChange)="onChange($event)"
         (onFilter)="onFilter($event)"
-        defaultLabel="{{ 'search.select-tags' | translate }}"
+        placeholder="{{ 'search.select-tags' | translate }}"
         optionLabel="value"
         display="chip"
-        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }"
-      >
+        [style]="{ width: 'calc(var(--wrapperWith) - 90px)' }">
         <ng-template let-tag pTemplate="item">
           <div [innerHTML]="tag.value | highlight : filter"></div>
         </ng-template>

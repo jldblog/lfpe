@@ -1,9 +1,9 @@
 <div class="app-searchby">
   <p-panel header="{{ 'tab.date' | translate }}">
     <div class="app-search">
-      <div class="app-date">
+      <div class="app-datepicker">
         <label>{{ "search.from" | translate }}</label>
-        <p-calendar
+        <p-datepicker
           [(ngModel)]="dateFrom"
           dateFormat="yy-mm-dd"
           view="month"
@@ -11,12 +11,11 @@
           [maxDate]="maxDateFrom"
           [showIcon]="true"
           [readonlyInput]="true"
-          (onSelect)="onDateFromChange()"
-        ></p-calendar>
+          (onSelect)="onDateFromChange()"></p-datepicker>
       </div>
-      <div class="app-date">
+      <div class="app-datepicker">
         <label>{{ "search.to" | translate }}</label>
-        <p-calendar
+        <p-datepicker
           [(ngModel)]="dateTo"
           dateFormat="yy-mm-dd"
           view="month"
@@ -24,9 +23,8 @@
           [maxDate]="maxDateTo"
           [showIcon]="true"
           [readonlyInput]="true"
-          (onSelect)="onDateToChange()"
-        >
-        </p-calendar>
+          (onSelect)="onDateToChange()">
+        </p-datepicker>
       </div>
     </div>
   </p-panel>

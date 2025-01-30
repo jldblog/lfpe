@@ -1,7 +1,7 @@
 export class Guest {
-    name!: string
+  name!: string
 
-    static guestsComparator(guest1: Guest, guest2: Guest): number {
-        return guest1.name.localeCompare(guest2.name, 'en');
-    }
+  static guestsComparator(guest1: Guest, guest2: Guest): number {
+    return guest1.name.localeCompare(guest2.name, 'en');
+  }
 }

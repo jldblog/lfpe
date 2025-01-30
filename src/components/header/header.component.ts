@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
-import { PrimeNGConfig } from 'primeng/api';
 import { MenuItem } from 'primeng/api/menuitem';
-import { ThemeService } from 'src/services/theme.service';
+import { PrimeNG } from 'primeng/config';
 
 interface Lang {
   code: string;
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   protected selectedLang!: Lang;
   protected items: MenuItem[] = [];
   protected activeItem: MenuItem | undefined;
-  protected darkTheme: boolean = false;
+  protected isDarkMode: boolean = false;
 
   private ITEMS: MenuItem[] = [
     {
@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
       icon: 'pi pi-microphone',
       routerLink: '/',
       skipLocationChange: true,
+      value: 1,
     },
     {
       separator: true
@@ -37,30 +38,35 @@ export class HeaderComponent implements OnInit {
       icon: 'pi pi-users',
       routerLink: '/guests',
       skipLocationChange: true,
+      value: 2,
     },
     {
       label: 'menu.titles',
       icon: 'pi pi-book',
       routerLink: '/titles',
       skipLocationChange: true,
+      value: 3,
     },
     {
       label: 'menu.rounds',
       icon: 'pi pi-circle',
       routerLink: '/rounds',
       skipLocationChange: true,
+      value: 4,
     },
     {
       label: 'menu.tags',
       icon: 'pi pi-tag',
       routerLink: '/tags',
       skipLocationChange: true,
+      value: 5,
     },
     {
       label: 'menu.dates',
       icon: 'pi pi-calendar',
       routerLink: '/dates',
       skipLocationChange: true,
+      value: 6,
     },
     {
       separator: true
@@ -70,14 +76,14 @@ export class HeaderComponent implements OnInit {
       icon: 'pi pi-info-circle',
       routerLink: '/about',
       skipLocationChange: true,
+      value: 7,
     },
   ];
 
-  constructor(private translateService: TranslateService, private primeConfig: PrimeNGConfig,
-    private themeService: ThemeService) {
-    const prefersColorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    this.darkTheme = prefersColorScheme.matches;
-    this.setTheme();
+  constructor(private translateService: TranslateService, private primeConfig: PrimeNG, @Inject(DOCUMENT) private document: Document) {
+    const prefersColorScheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+    this.isDarkMode = prefersColorScheme.matches;
+    this.swichTheme();
   }
 
   ngOnInit(): void {
@@ -102,7 +108,7 @@ export class HeaderComponent implements OnInit {
     })
 
     // https://dev.to/yigitfindikli/primeng-i18n-api-usage-with-ngx-translate-3bh2
-    // https://stackoverflow.com/questions/62874602/internationalization-of-p-calendar-primeng-i18next
+    // https://stackoverflow.com/questions/62874602/internationalization-of-p-datepicker-primeng-i18next
     this.translateService.stream('primeng').subscribe(data => {
       this.primeConfig.setTranslation(data);
     });
@@ -144,16 +150,16 @@ export class HeaderComponent implements OnInit {
     this.setLang(this.selectedLang);
   }
 
-  protected onThemeChange() {
-    this.setTheme();
+  protected onToggleChange() {
+    this.isDarkMode = !this.isDarkMode;
+    this.swichTheme();
   }
 
-  private setTheme() {
-    if (this.darkTheme) {
-      this.themeService.switchTheme('dark-theme');
-    }
-    else {
-      this.themeService.switchTheme('light-theme');
-    }
+  private swichTheme() {
+    const element = document.querySelector('html');
+    this.isDarkMode ? element?.classList.add('dark') : element?.classList.remove('dark');
+    var theme: string = element?.classList.contains('dark') ? 'dark-theme' : 'light-theme';
+    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
+    themeLink.href = theme + '.css';
   }
 }

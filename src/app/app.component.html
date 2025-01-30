@@ -1,11 +1,9 @@
 <div id="root">
-  <div class="wrapper">
+  <div class="wrapper text-primary bg-primary-contrast">
+    <p-toast position="top-center" closable=false life=3600000 />
     <p-scrollTop [threshold]="40" styleClass="scroll-top"></p-scrollTop>
     <app-header></app-header>
-    <div class="flex justify-content-center">
-      <p-messages [closable]="false"></p-messages>
-    </div>
-    <main>
+    <main class="">
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>

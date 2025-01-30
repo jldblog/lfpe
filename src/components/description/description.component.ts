@@ -4,220 +4,223 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Video } from 'src/domain/video';
 
 @Component({
-    selector: 'app-description',
-    templateUrl: './description.component.html',
-    styleUrls: ['./description.component.sass']
+  selector: 'app-description',
+  templateUrl: './description.component.html',
+  styleUrls: ['./description.component.sass']
 })
 
 export class DescriptionComponent implements OnInit {
-    private IN_BOLD: string[] = ['Check out our sponsors', 'Please support this channel', 'Please support this podcast', 'Thank you for listening'];
-    protected video!: Video;
-    protected cleanedDescription: string = '';
-    protected info: string = '';
-    protected outline: string = '';
-    protected transcript: string = '';
-    protected lang: string;
-    protected publishedDate!: Date;
-    protected descriptionEmpty: boolean = false;
+  private IN_BOLD: string[] = ['Check out our sponsors', 'Please support this channel', 'Please support this podcast', 'Thank you for listening'];
+  protected video!: Video;
+  protected cleanedDescription: string = '';
+  protected info: string = '';
+  protected outline: string = '';
+  protected transcript: string = '';
+  protected lang: string;
+  protected publishedDate!: Date;
+  protected descriptionEmpty: boolean = false;
 
-    constructor(public config: DynamicDialogConfig, private translateService: TranslateService) {
-        this.lang = translateService.currentLang;
+  // JLUC
+  private ref: DynamicDialogRef | undefined;
+
+  constructor(public config: DynamicDialogConfig, private translateService: TranslateService) {
+    this.lang = translateService.currentLang;
+  }
+
+  ngOnInit() {
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.lang = this.translateService.currentLang;
+    })
+
+    this.video = JSON.parse(this.config.data);
+    this.publishedDate = new Date(this.video.publishedAt);
+
+    if (this.video.description) {
+      this.descriptionEmpty = false;
+      this.cleanedDescription = this.descriptionCleaner(this.video.description);
+    }
+    else {
+      this.descriptionEmpty = true;
+    }
+  }
+
+  descriptionCleaner(description: string): string {
+    let result = this.miscReplacements(description);
+
+    const info = this.extractGuestInfo(result);
+    const outline = this.extractOutline(result);
+    const transcript = this.extractTranscript(result);
+
+    result = this.removeGuestInfo(result, info);
+    result = this.removeOutline(result, outline);
+    result = this.removeTranscript(result, transcript);
+
+    result = this.asteriskifyHeaders(result);
+    result = this.boldify(result);
+    result = this.inBold(result);
+    result = this.urlify(result);
+    result = result.trim();
+    result = result.replaceAll('\n', '<br />');
+
+    this.info = this.guestNameInBold(info);
+    this.info = this.urlify(this.info);
+    this.outline = this.decorateOutline(outline);
+    this.transcript = this.decorateTranscript(transcript);
+
+    return result;
+  }
+
+  miscReplacements(text: string): string {
+    return text.replace(/\n\*Transcript:\*\n/, '\nTRANSCRIPT:\n');
+  }
+
+  guestNameInBold(text: string): string {
+    return text.replace(this.video.guest, '<b>' + this.video.guest + '</b>');;
+  }
+
+  extractGuestInfo(text: string): string {
+    let info: string = '';
+    const regexp1 = /^(.*\n)/;
+    const matches1 = text.match(regexp1);
+
+    if (matches1) {
+      info = matches1[0];
+      const regexp2 = /^(.*)( Please support this .*)/;
+      const matches2 = info.match(regexp2);
+
+      if (matches2) {
+        info = matches2[1];
+      }
     }
 
-    ngOnInit() {
-        this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-            this.lang = this.translateService.currentLang;
-        })
+    return info;
+  }
 
-        this.video = JSON.parse(this.config.data);
-        this.publishedDate = new Date(this.video.publishedAt);
+  removeGuestInfo(text: string, info: string): string {
+    return text.replace(info, '');
+  }
 
-        if (this.video.description) {
-            this.descriptionEmpty = false;
-            this.cleanedDescription = this.descriptionCleaner(this.video.description);
-        }
-        else {
-            this.descriptionEmpty = true;
-        }
+  extractTranscript(text: string): string {
+    let transcript: string = '';
+    const regexp = /\*?TRANSCRIPT:\*?\n(https:.*\n)\n/;
+    const matches = text.match(regexp);
+
+    if (matches) {
+      transcript = matches[0];
     }
 
-    descriptionCleaner(description: string): string {
-        let result = this.miscReplacements(description);
+    return transcript;
+  }
 
-        const info = this.extractGuestInfo(result);
-        const outline = this.extractOutline(result);
-        const transcript = this.extractTranscript(result);
+  removeTranscript(text: string, transcript: string): string {
+    let result: string = text;
 
-        result = this.removeGuestInfo(result, info);
-        result = this.removeOutline(result, outline);
-        result = this.removeTranscript(result, transcript);
-
-        result = this.asteriskifyHeaders(result);
-        result = this.boldify(result);
-        result = this.inBold(result);
-        result = this.urlify(result);
-        result = result.trim();
-        result = result.replaceAll('\n', '<br />');
-
-        this.info = this.guestNameInBold(info);
-        this.info = this.urlify(this.info);
-        this.outline = this.decorateOutline(outline);
-        this.transcript = this.decorateTranscript(transcript);
-
-        return result;
+    if (transcript) {
+      result = text.replace(transcript, '');
     }
 
-    miscReplacements(text: string): string {
-        return text.replace(/\n\*Transcript:\*\n/, '\nTRANSCRIPT:\n');
+    return result;
+  }
+
+  decorateTranscript(transcript: string): string {
+    transcript = this.urlify(transcript);
+    transcript = this.decorateHeader(transcript, 'TRANSCRIPT:');
+    transcript = transcript.trim();
+    transcript = transcript.replaceAll('\n', '<br />');
+
+    return transcript;
+  }
+
+  extractOutline(text: string): string {
+    let outline: string = '';
+    const regexp = /\*?OUTLINE:\*?\n(.*\n)+?\n/;
+    const matches = text.match(regexp);
+
+    if (matches) {
+      outline = matches[0];
     }
 
-    guestNameInBold(text: string): string {
-        return text.replace(this.video.guest, '<b>' + this.video.guest + '</b>');;
+    return outline;
+  }
+
+  removeOutline(text: string, outline: string): string {
+    return text.replace(outline, '');
+  }
+
+  decorateOutline(outline: string): string {
+    outline = this.urlifyChapters(outline);
+    outline = outline.replaceAll('*', '');
+    outline = this.decorateHeader(outline, 'OUTLINE:');
+    outline = outline.trim();
+    outline = outline.replaceAll('\n', '<br />');
+
+    return outline;
+  }
+
+  decorateHeader(text: string, header: string): string {
+    return text.replaceAll(header, "<b>" + header + "</b>");
+  }
+
+  asteriskifyHeaders(text: string) {
+    return text.replaceAll(/\n(.*:)\n/g, '\n*$1*\n');
+  }
+
+  boldify(text: string) {
+    return text.replace(/\*(.*)\*/g, '<b>$1</b>');
+  }
+
+  inBold(text: string) {
+    let result: string = text;
+
+    for (const inbold of this.IN_BOLD) {
+      result = result.replaceAll(inbold, "<b>" + inbold + "</b>");
     }
 
-    extractGuestInfo(text: string): string {
-        let info: string = '';
-        const regexp1 = /^(.*\n)/;
-        const matches1 = text.match(regexp1);
+    return result;
+  }
 
-        if (matches1) {
-            info = matches1[0];
-            const regexp2 = /^(.*)( Please support this .*)/;
-            const matches2 = info.match(regexp2);
+  urlify(text: string): string {
+    return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="app-a">$1</a>')
+  }
 
-            if (matches2) {
-                info = matches2[1];
-            }
-        }
+  urlifyChapters(text: string): string {
+    let result: string = text;
+    const regexp = /(\d+):(\d+)(:)?(\d+)?(.*)/g;
+    const matches = text.matchAll(regexp);
 
-        return info;
+    for (const match of matches) {
+      let time: string = '00:00:00';
+
+      if (match[3]) {
+        time = match[1] + ':' + match[2] + ':' + match[4];
+      }
+      else {
+        time = match[1] + ':' + match[2];
+      }
+
+      let seconds = this.convertToSeconds(time);
+      let link = 'https://www.youtube.com/watch?v=' + this.video.id + '&t=' + seconds + 's';
+      let line = '<a target="_blank" rel="noopener noreferrer" href="' + link + '" class="app-a">' + time + '</a>' + match[5];
+      result = result.replace(match[0], line);
     }
 
-    removeGuestInfo(text: string, info: string): string {
-        return text.replace(info, '');
+    return result;
+  }
+
+  convertToSeconds(hms: string): number {
+    var result: number = 0;
+    const values = hms.split(':');
+
+    if (values.length == 3) {
+      result = parseInt(values[0]) * 3600 + parseInt(values[1]) * 60 + parseInt(values[2]);
+    }
+    else if (values.length == 2) {
+      result = parseInt(values[0]) * 60 + parseInt(values[1]);
+    }
+    else {
+      result = parseInt(values[0]);
     }
 
-    extractTranscript(text: string): string {
-        let transcript: string = '';
-        const regexp = /\*?TRANSCRIPT:\*?\n(https:.*\n)\n/;
-        const matches = text.match(regexp);
-
-        if (matches) {
-            transcript = matches[0];
-        }
-
-        return transcript;
-    }
-
-    removeTranscript(text: string, transcript: string): string {
-        let result: string = text;
-
-        if (transcript) {
-            result = text.replace(transcript, '');
-        }
-
-        return result;
-    }
-
-    decorateTranscript(transcript: string): string {
-        transcript = this.urlify(transcript);
-        transcript = this.decorateHeader(transcript, 'TRANSCRIPT:');
-        transcript = transcript.trim();
-        transcript = transcript.replaceAll('\n', '<br />');
-
-        return transcript;
-    }
-
-    extractOutline(text: string): string {
-        let outline: string = '';
-        const regexp = /\*?OUTLINE:\*?\n(.*\n)+?\n/;
-        const matches = text.match(regexp);
-
-        if (matches) {
-            outline = matches[0];
-        }
-
-        return outline;
-    }
-
-    removeOutline(text: string, outline: string): string {
-        return text.replace(outline, '');
-    }
-
-    decorateOutline(outline: string): string {
-        outline = this.urlifyChapters(outline);
-        outline = outline.replaceAll('*', '');
-        outline = this.decorateHeader(outline, 'OUTLINE:');
-        outline = outline.trim();
-        outline = outline.replaceAll('\n', '<br />');
-
-        return outline;
-    }
-
-    decorateHeader(text: string, header: string): string {
-        return text.replaceAll(header, "<b>" + header + "</b>");
-    }
-
-    asteriskifyHeaders(text: string) {
-        return text.replaceAll(/\n(.*:)\n/g, '\n*$1*\n');
-    }
-
-    boldify(text: string) {
-        return text.replace(/\*(.*)\*/g, '<b>$1</b>');
-    }
-
-    inBold(text: string) {
-        let result: string = text;
-
-        for (const inbold of this.IN_BOLD) {
-            result = result.replaceAll(inbold, "<b>" + inbold + "</b>");
-        }
-
-        return result;
-    }
-
-    urlify(text: string): string {
-        return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
-    }
-
-    urlifyChapters(text: string): string {
-        let result: string = text;
-        const regexp = /(\d+):(\d+)(:)?(\d+)?(.*)/g;
-        const matches = text.matchAll(regexp);
-
-        for (const match of matches) {
-            let time: string = '00:00:00';
-
-            if (match[3]) {
-                time = match[1] + ':' + match[2] + ':' + match[4];
-            }
-            else {
-                time = match[1] + ':' + match[2];
-            }
-
-            let seconds = this.convertToSeconds(time);
-            let link = 'https://www.youtube.com/watch?v=' + this.video.id + '&t=' + seconds + 's';
-            let line = '<a target="_blank" rel="noopener noreferrer" href="' + link + '">' + time + '</a>' + match[5];
-            result = result.replace(match[0], line);
-        }
-
-        return result;
-    }
-
-    convertToSeconds(hms: string): number {
-        var result: number = 0;
-        const values = hms.split(':');
-
-        if (values.length == 3) {
-            result = parseInt(values[0]) * 3600 + parseInt(values[1]) * 60 + parseInt(values[2]);
-        }
-        else if (values.length == 2) {
-            result = parseInt(values[0]) * 60 + parseInt(values[1]);
-        }
-        else {
-            result = parseInt(values[0]);
-        }
-
-        return result;
-    }
+    return result;
+  }
 }
