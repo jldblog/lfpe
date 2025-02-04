@@ -129,7 +129,7 @@ function specialCases(videoID: string, snippet: any) {
   }
   else if (videoID === 'SFxIazwNP_0') {
     // #279 "Alien Debate: Sara Walker and Lee Cronin | Lex Fridman Podcast #279"
-    snippet.title = "Sara Walker & Lee Cronin: Alien Debate | Lex Fridman Podcast #279";
+    snippet.title = "Sara Walker and Lee Cronin: Alien Debate | Lex Fridman Podcast #279";
   }
   else if (videoID === '4AWLcxTGZPA') {
     // #332 "Kanye 'Ye' West Interview | Lex Fridman Podcast #332"
@@ -153,7 +153,7 @@ function specialCases(videoID: string, snippet: any) {
   }
   else if (videoID === "_1f-o0nqpEI") {
     // #459 "DeepSeek, China, OpenAI, NVIDIA, xAI, TSMC, Stargate, and AI Megaclusters | Lex Fridman Podcast #459"
-    snippet.title = "Dylan Patel & Nathan Lambert: DeepSeek, China and AI | Lex Fridman Podcast #459"
+    snippet.title = "Dylan Patel and Nathan Lambert: DeepSeek, China & AI | Lex Fridman Podcast #459"
   }
 }
 
