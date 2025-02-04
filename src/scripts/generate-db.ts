@@ -151,6 +151,10 @@ function specialCases(videoID: string, snippet: any) {
     // #442 "Donald Trump Interview | Lex Fridman Podcast #442"
     snippet.title = "Donald Trump: Interview | Lex Fridman Podcast #442"
   }
+  else if (videoID === "_1f-o0nqpEI") {
+    // #459 "DeepSeek, China, OpenAI, NVIDIA, xAI, TSMC, Stargate, and AI Megaclusters | Lex Fridman Podcast #459"
+    snippet.title = "Dylan Patel & Nathan Lambert: DeepSeek, China and AI | Lex Fridman Podcast #459"
+  }
 }
 
 function saveVideoData(videoItems: any) {
