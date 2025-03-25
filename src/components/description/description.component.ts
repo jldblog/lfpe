@@ -55,7 +55,7 @@ export class DescriptionComponent implements OnInit {
     result = this.removeOutline(result, outline);
     result = this.removeTranscript(result, transcript);
 
-    result = this.asteriskifyHeaders(result);
+    result = this.htmlifyHeaders(result);
     result = this.boldify(result);
     result = this.inBold(result);
     result = this.urlify(result);
@@ -161,8 +161,8 @@ export class DescriptionComponent implements OnInit {
     return text.replaceAll(header, "<b>" + header + "</b>");
   }
 
-  asteriskifyHeaders(text: string) {
-    return text.replaceAll(/\n(.*:)\n/g, '\n*$1*\n');
+  htmlifyHeaders(text: string) {
+    return text.replaceAll(/\n(.+:?)\n/g, '\n<b>$1</b>\n');
   }
 
   boldify(text: string) {
