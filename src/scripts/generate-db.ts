@@ -121,7 +121,7 @@ async function save(videoIDs: string[]) {
   saveToJsonFile(DESTINATION_DIR + '/' + DB_FILE_NAME, videoDB, 0);
 }
 
-function specialCases(videoID: string, snippet: any) {
+function specialCases1(videoID: string, snippet: any) {
   if (videoID === '6I5I56uVvLw') {
     // #100 "Dr Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100"
     snippet.title = 'Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100';
@@ -157,15 +157,22 @@ function specialCases(videoID: string, snippet: any) {
   }
 }
 
+function specialCases2(videoID: string, titleData: any) {
+  if (videoID === "DTPSeeKokdo") {
+    // #462 "Ezra Klein and Derek Thompson: Politics, Trump, AOC, Elon & DOGE | Lex Fridman Podcast #462"
+    titleData.guest = "Ezra Klein"
+  }
+}
+
 function saveVideoData(videoItems: any) {
   videoItems.forEach((item: any) => {
     var videoData: any = {};
     const snippet = item.snippet;
     const videoID = item.id;
 
-    specialCases(videoID, snippet);
-
+    specialCases1(videoID, snippet);
     const titleData = parseTitle(snippet.title);
+    specialCases2(videoID, titleData);
 
     if (titleData.guest) {
       const retrievedAt = new Date().toISOString();
