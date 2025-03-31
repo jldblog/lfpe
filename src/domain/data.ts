@@ -1,8 +1,8 @@
-import { Video } from "./video";
+import { VideoData } from "./video-data";
 
 export class Data {
   description!: Description;
-  videos!: Video[];
+  videos!: VideoData[];
 }
 
 export interface Description {

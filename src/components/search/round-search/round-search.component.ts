@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Guest } from 'src/domain/guest';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 import { DatabaseService } from 'src/services/database.service';
 
 @Component({
@@ -11,23 +11,21 @@ import { DatabaseService } from 'src/services/database.service';
 
 export class RoundSearchComponent implements OnInit {
   protected guests: Guest[] = [];
-  protected videos: Video[] = [];
+  protected videos: VideoData[] = [];
   protected selectedGuests: Guest[] = [];
-  protected selectedVideos: Video[] = [];
+  protected selectedVideos: VideoData[] = [];
   protected filter: string = '';
 
   constructor(private dbService: DatabaseService) { }
 
   ngOnInit(): void {
-    let roundsMap: Map<Guest, Video[]> = this.dbService.getRoundsMap();
+    let roundsMap: Map<Guest, VideoData[]> = this.dbService.getRoundsMap();
 
     roundsMap.forEach((value, key) => {
       this.guests.push(key);
       this.videos.push(...value);
     });
 
-    this.guests = this.guests.sort(Guest.guestsComparator);
-    this.videos = this.videos.sort(Video.videosByRoundComparator);
     this.selectedVideos = this.videos;
   }
 
@@ -40,7 +38,7 @@ export class RoundSearchComponent implements OnInit {
       this.selectedVideos = this.videos;
     }
     else {
-      this.selectedVideos = this.dbService.getVideosByGuests(this.selectedGuests).sort(Video.videosByRoundComparator);
+      this.selectedVideos = this.dbService.getVideosByGuests(this.selectedGuests);
     }
   }
 

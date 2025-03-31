@@ -1,0 +1,104 @@
+videos:
+  # 100
+  - id: 6I5I56uVvLw
+    title: "Lex Fridman: Navigating Conflict, Finding Purpose & Maintaining Drive | Huberman Lab Podcast #100"
+    replace:
+      - Timestamps
+      - "OUTLINE:"
+  # 148
+  - id: yzMVEbs8Zz0
+    guests:
+      - Charles Isbell
+      - Michael Littman
+  # 178
+  - id: Pl3x4GINtBQ
+    guests:
+      - Michael Malice
+      - Yaron Brook
+  # 209
+  - id: ndMahzDCH1Y
+    guests:
+      - Luis and Joao Batalha
+  # 256
+  - id: Q24cpnHzx8I
+    guests:
+      - Yaron Brook
+      - Yoram Hazony
+  # 260
+  - id: KdmDtqB46Jc
+    guests:
+      - Georges St-Pierre
+      - John Danaher
+      - Gordon Ryan
+  # 279
+  - id: SFxIazwNP_0
+    title: "Sara Walker and Lee Cronin: Alien Debate | Lex Fridman Podcast #279"
+    guests:
+      - Sara Walker
+      - Lee Cronin
+  # 319
+  - id: srUlKNLZTas
+    guests:
+      - Alexandra and Andrea Botez
+  # 332
+  - id: 4AWLcxTGZPA
+    title: "Kanye 'Ye' West: Interview | Lex Fridman Podcast #332"
+  # 339
+  - id: 5Gk9gIpGvSE
+    title: "Bjørn Lomborg and Andrew Revkin: Climate Change Debate | Lex Fridman Podcast #339"
+    guests:
+      - Bjørn Lomborg
+      - Andrew Revkin
+  # 363
+  - id: hLZ6PACCBy8
+    guests:
+      - Craig Jones
+      - Nicky Rod
+      - Nicky Ryan
+  # 410
+  - id: tYrdMjVXyNg
+    guests:
+      - Ben Shapiro
+      - Steven Bonnell # aka Destiny
+  # 416
+  - id: 5t1vTLU7s40
+    title: "Yann LeCun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI | Lex Fridman Podcast #416"
+  # 418
+  - id: 1X_KdkoGxSs
+    guests:
+      - Norman Finkelstein
+      - Benny Morris
+      - Mouin Rabbani
+      - Steven Bonnell # aka Destiny
+  # 438
+  - id: Kbk9BiPhm7o
+    guests:
+      - Elon Musk
+      - DJ Seo
+      - Matthew MacDougall
+      - Bliss Chapman
+      - Noland Arbaugh
+  # 442
+  - id: qCbfTN-caFI
+    title: "Donald Trump: Interview | Lex Fridman Podcast #442"
+  # 447
+  - id: oFfVt3S51T4
+    guests:
+      - Aman Sanger
+      - Arvid Lunnemark
+      - Michael Truell
+      - Sualeh Asif
+  # 450
+  - id: MzkgWDCucNY
+    title: "Bernie Sanders: Interview | Lex Fridman Podcast #450"
+  # 459
+  - id: _1f-o0nqpEI
+    title: "Dylan Patel and Nathan Lambert: DeepSeek, China & AI | Lex Fridman Podcast #459"
+    guests:
+      - Dylan Patel
+      - Nathan Lamber
+  # 462
+  - id: DTPSeeKokdo
+    guests:
+      - Ezra Klein
+      - Derek Thompson

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 
 @Component({
   selector: 'app-description',
@@ -11,7 +11,7 @@ import { Video } from 'src/domain/video';
 
 export class DescriptionComponent implements OnInit {
   private IN_BOLD: string[] = ['Check out our sponsors', 'Please support this channel', 'Please support this podcast', 'Thank you for listening'];
-  protected video!: Video;
+  protected video!: VideoData;
   protected cleanedDescription: string = '';
   protected info: string = '';
   protected outline: string = '';
@@ -75,7 +75,11 @@ export class DescriptionComponent implements OnInit {
   }
 
   guestNameInBold(text: string): string {
-    return text.replace(this.video.guest, '<b>' + this.video.guest + '</b>');;
+    for (const name of this.video.guests) {
+      text = text.replace(name, '<b>' + name + '</b>');
+    }
+
+    return text;
   }
 
   extractGuestInfo(text: string): string {
