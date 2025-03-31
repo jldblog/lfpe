@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 import { DescriptionComponent } from '../../description/description.component';
 
 @Component({
@@ -11,13 +11,13 @@ import { DescriptionComponent } from '../../description/description.component';
 })
 
 export class ResultsComponent implements OnChanges, OnInit {
-  @Input() public videos: Video[] = [];
+  @Input() public videos: VideoData[] = [];
   protected first1: number = 0;
   protected rows1: number = 4;
   protected first2: number = 0;
   protected rows2: number = 16;
-  protected videosSlice1: Video[] = [];
-  protected videosSlice2: Video[] = [];
+  protected videosSlice1: VideoData[] = [];
+  protected videosSlice2: VideoData[] = [];
   protected displayOptions: any[] = [
     { icon: 'pi pi-th-large', index: 0 },
     { icon: 'pi pi-bars', index: 1 }
@@ -49,11 +49,11 @@ export class ResultsComponent implements OnChanges, OnInit {
     this.videosSlice2 = this.sliceVideos2();
   }
 
-  private sliceVideos1(): Video[] {
+  private sliceVideos1(): VideoData[] {
     return this.videos.slice(this.first1, this.first1 + this.rows1);
   }
 
-  private sliceVideos2(): Video[] {
+  private sliceVideos2(): VideoData[] {
     return this.videos.slice(this.first2, this.first2 + this.rows2);
   }
 
@@ -61,7 +61,7 @@ export class ResultsComponent implements OnChanges, OnInit {
     this.hideTable = !this.hideTable;
   }
 
-  protected onShowDescriptionDialog(video: Video): void {
+  protected onShowDescriptionDialog(video: VideoData): void {
     this.dialogRef = this.dialogService.open(DescriptionComponent, {
       header: video.originalTitle,
       data: JSON.stringify(video),

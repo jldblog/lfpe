@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DateTime } from 'luxon';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 import { DatabaseService } from 'src/services/database.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class DateSearchComponent implements OnInit {
   protected maxDateFrom!: Date;
   protected minDateTo!: Date;
   protected maxDateTo!: Date;
-  public videos: Video[] = [];
+  public videos: VideoData[] = [];
 
   constructor(private dbService: DatabaseService) {
     this.initDates();

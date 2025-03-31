@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 import { DatabaseService } from 'src/services/database.service';
 
 interface Choice {
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     'RANDOM': 3,
     'RECENT': 4,
   });
-  protected videos: Video[] = [];
+  protected videos: VideoData[] = [];
   protected choices: Choice[];
   protected selectedChoice: Choice;
   protected choiceCode: number;

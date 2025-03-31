@@ -1,40 +1,31 @@
-export class Video {
+export class VideoData {
   id!: string;
   retrievedAt!: string;
   publishedAt!: string;
   duration!: string;
   originalTitle!: string;
   shortTitle!: string;
-  guest!: string;
+  guests: string[] = []
   episode!: number;
   description!: string;
   thumbnails!: Thumbnail;
-  tags!: string[];
+  tags: string[] = []
   statistics!: Statistics;
 
-  static videosByNumberComparator(video1: Video, video2: Video): number {
+  static videosByNumberComparator(video1: VideoData, video2: VideoData): number {
     return (video2.episode ? video2.episode : 0) - (video1.episode ? video1.episode : 0);
   }
 
-  static videosByViewCountComparator(video1: Video, video2: Video): number {
+  static videosByViewCountComparator(video1: VideoData, video2: VideoData): number {
     return Statistics.viewCountComparator(video1.statistics, video2.statistics);
   }
 
-  static videosByLikeCountComparator(video1: Video, video2: Video): number {
+  static videosByLikeCountComparator(video1: VideoData, video2: VideoData): number {
     return Statistics.likeCountComparator(video1.statistics, video2.statistics);
   }
 
-  static videosByFavoriteCountComparator(video1: Video, video2: Video): number {
+  static videosByFavoriteCountComparator(video1: VideoData, video2: VideoData): number {
     return Statistics.favoriteCountComparator(video1.statistics, video2.statistics);
-  }
-
-  static videosByRoundComparator(video1: Video, video2: Video): number {
-    if (video2.guest == video1.guest) {
-      return (video2.episode ? video2.episode : 0) - (video1.episode ? video1.episode : 0);
-    }
-    else {
-      return video1.guest.localeCompare(video2.guest, 'en');
-    }
   }
 }
 

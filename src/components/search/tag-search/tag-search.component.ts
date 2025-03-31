@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tag, Video } from 'src/domain/video';
+import { Tag, VideoData } from 'src/domain/video-data';
 import { DatabaseService } from 'src/services/database.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { DatabaseService } from 'src/services/database.service';
 })
 
 export class TagSearchComponent implements OnInit {
-  protected videos: Video[] = [];
+  protected videos: VideoData[] = [];
   protected tags: Tag[] = [];
   protected selectedTags: Tag[] = [];
   protected filter: string = '';
@@ -27,7 +27,7 @@ export class TagSearchComponent implements OnInit {
   }
 
   protected onChange(event: any): void {
-    let videos: Video[] = [];
+    let videos: VideoData[] = [];
 
     if (this.selectedTags.length == 0) {
       videos = this.dbService.getAllVideos();

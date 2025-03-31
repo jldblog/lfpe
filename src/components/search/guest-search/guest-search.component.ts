@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Guest } from 'src/domain/guest';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 import { DatabaseService } from 'src/services/database.service';
 
 @Component({
@@ -11,9 +11,9 @@ import { DatabaseService } from 'src/services/database.service';
 
 export class GuestSearchComponent implements OnInit {
   protected guests: Guest[] = [];
-  protected videos: Video[] = [];
+  protected videos: VideoData[] = [];
   protected selectedGuests: Guest[] = [];
-  protected selectedVideos: Video[] = [];
+  protected selectedVideos: VideoData[] = [];
   protected filter: string = '';
 
   constructor(private dbService: DatabaseService) { }

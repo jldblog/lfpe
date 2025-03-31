@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from 'src/domain/title';
-import { Video } from 'src/domain/video';
+import { VideoData } from 'src/domain/video-data';
 import { DatabaseService } from 'src/services/database.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { DatabaseService } from 'src/services/database.service';
 })
 
 export class TitleSearchComponent implements OnInit {
-  protected videos: Video[] = [];
+  protected videos: VideoData[] = [];
   protected titles!: Title[];
   protected selectedTitles!: Title[];
   protected filter: string = '';
@@ -28,7 +28,7 @@ export class TitleSearchComponent implements OnInit {
   }
 
   protected onChange(): void {
-    let videos: Video[] = [];
+    let videos: VideoData[] = [];
 
     if (this.selectedTitles.length == 0) {
       videos = this.dbService.getAllVideos();
