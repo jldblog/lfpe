@@ -140,7 +140,6 @@ function patchTitle(videoID: string, snippet: any) {
   const found = patches.videos.find((element: any) => element.id == videoID);
 
   if (found && found.title) {
-    // console.log(found.title);
     snippet.title = found.title;
   }
 }
@@ -149,7 +148,6 @@ function patchGuests(videoID: string, titleData: TitleData) {
   const found = patches.videos.find((element: any) => element.id == videoID);
 
   if (found && found.guests) {
-    // console.log(found.guests);
     titleData.guests = found.guests;
   }
 }
