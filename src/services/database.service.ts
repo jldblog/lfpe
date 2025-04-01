@@ -78,7 +78,10 @@ export class DatabaseService {
     if (this.data && this.data.videos) {
       this.data.videos.forEach((video: VideoData) => {
         if (video.guests.length > 0) {
-          let title: Title = { title: video.shortTitle + ' | ' + video.guests.join(', ') };
+          let title: Title = {
+            title: video.shortTitle + ' | ' + video.guests.join(', '),
+            shortTitle: video.shortTitle
+          };
           titles.push(title);
         }
       });
@@ -240,10 +243,10 @@ export class DatabaseService {
 
     if (this.data && this.data.videos) {
       this.data.videos.forEach((video: VideoData) => {
-        let title = video.shortTitle;
+        let shortTitle = video.shortTitle;
 
         titles.every(t => {
-          if (t.title === title) {
+          if (t.shortTitle === shortTitle) {
             videos.push(video);
             return false;
           }
