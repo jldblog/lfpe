@@ -20,7 +20,6 @@ export class DescriptionComponent implements OnInit {
   protected publishedDate!: Date;
   protected descriptionEmpty: boolean = false;
 
-  // JLUC
   private ref: DynamicDialogRef | undefined;
 
   constructor(public config: DynamicDialogConfig, private translateService: TranslateService) {
@@ -204,7 +203,7 @@ export class DescriptionComponent implements OnInit {
 
       let seconds = this.convertToSeconds(time);
       let link = 'https://www.youtube.com/watch?v=' + this.video.id + '&t=' + seconds + 's';
-      let line = '<a target="_blank" rel="noopener noreferrer" href="' + link + '" class="app-a">' + time + '</a>' + match[5];
+      let line = '<a target="_blank" rel="noopener noreferrer" href="' + link + '" class="app-a">' + time + match[5] + '</a>';
       result = result.replace(match[0], line);
     }
 
