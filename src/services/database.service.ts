@@ -78,7 +78,7 @@ export class DatabaseService {
     if (this.data && this.data.videos) {
       this.data.videos.forEach((video: VideoData) => {
         if (video.guests.length > 0) {
-          let title: Title = { title: video.shortTitle };
+          let title: Title = { title: video.shortTitle + ' | ' + video.guests.join(', ') };
           titles.push(title);
         }
       });
