@@ -2,13 +2,14 @@
   class="app-result-dataview"
   [style.display]="!hideTable ? 'none' : 'inline-flex'">
   <div class="app-dataview">
-    <div
-      class="app-cell"
-      *ngFor="let video of videosSlice2"
-      (click)="onShowDescriptionDialog(video)">
-      <img class="bg-white dark:bg-gray-800 rounded-lg ring shadow-xl ring-gray-900/5" [src]="video.thumbnails.medium.url" />
+    @for (video of videosSlice2; track video.id) {
+    <div class="app-cell" (click)="onShowDescriptionDialog(video)">
+      <img
+        class="bg-white dark:bg-gray-800 rounded-lg ring shadow-xl ring-gray-900/5"
+        [src]="video.thumbnails.medium.url" />
       <p lang="en">{{ video.shortTitle }}</p>
     </div>
+    }
   </div>
   <div class="app-paginator">
     <p-paginator

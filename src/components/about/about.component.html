@@ -7,34 +7,35 @@
       <label class="title">{{ title1 }}</label>
       <label class="title">{{ title2 }}</label>
       <label>Version {{ version }}<br /></label>
-      <label *ngIf="build">
-        <label>Build {{ build | date : "yyyyMMddHHmmss" : "UTC" }}</label>
-      </label>
-      <label class="updated" *ngIf="lastUpdated">
-        {{ "about.updated" | translate }}
-      </label>
-      <label class="updated" *ngIf="lastUpdated">
-        {{ lastUpdated | date : "yyyy-MM-dd HH:mm:ss" : "UTC" }} UTC
-      </label>
-      <label class="app-source">
-        {{ "about.source" | translate }}&nbsp;
-        <a href="{{ url }}" class="app-a">{{ url }}</a>
-      </label>
+      @if (build) {
+      <label>Build {{ build | date: "yyyyMMddHHmmss" : "UTC" }}</label>
+      }
+      @if (lastUpdated) {
+      <label class="updated">{{ "about.updated" | translate }}</label>
+      }
+      @if (lastUpdated) {
+      <label class="updated">{{ lastUpdated | date: "yyyy-MM-dd HH:mm:ss" : "UTC" }} UTC</label>
+      }
+      <label class="app-source">{{ "about.source" | translate }}&nbsp;<a
+          href="{{ url }}"
+          class="app-a">{{ url }}</a></label>
       <label>
         {{ "about.license" | translate }}
-        <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="app-a">
-          GNU GPLv3
-        </a>
+        <a
+          href="https://www.gnu.org/licenses/gpl-3.0.en.html"
+          target="_blank"
+          class="app-a">GNU GPLv3</a>
       </label>
     </div>
     <div class="app-quote-right">
-      <i>{{ "about.quote.line1" | translate }}<br />{{
-        "about.quote.line2" | translate
-        }}<br />
-        {{ "about.quote.line3" | translate }}<br /> </i><br />
-      {{ "about.quote.ref1" | translate }}<br />{{
-      "about.quote.ref2" | translate
-      }}
+      <i>
+        {{ "about.quote.line1" | translate }}<br />
+        {{ "about.quote.line2" | translate }}<br />
+        {{ "about.quote.line3" | translate }}<br />
+      </i>
+      <br />
+      {{ "about.quote.ref1" | translate }}<br />
+      {{ "about.quote.ref2" | translate }}
     </div>
   </div>
 </p-panel>
