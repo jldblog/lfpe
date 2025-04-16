@@ -138,7 +138,7 @@ Saved src/assets/db.json
 _Note (with a deep mathematical consideration):_
 
 - _#84 episode is private, see <a href="https://www.reddit.com/r/lexfridman/comments/zmfznv/request_for_lex_to_make_a_public_statement_on_the/" target="_blank">here</a> why._
-- _#100 episode is <a href="https://www.youtube.com/watch?v=6I5I56uVvLw" target="_blank">on another channel</a>, but we added it in `generate-db.ts`._
+- _#100 episode is <a href="https://www.youtube.com/watch?v=6I5I56uVvLw" target="_blank">on another channel</a>, but we added it in [`src/scripts/patches.yaml`](https://github.com/jldblog/lfpe/blob/main/src/scripts/patches.yaml)._
 - _So it is normal if the script found for example 402 episodes even if the current last episode is #403 !_
 
 #### 4. Running the live development server
@@ -154,5 +154,5 @@ Angular Live Development Server is listening on localhost:4200, open your browse
 
 - Demo : https://jldblog.github.io/lfpe/
 - <a href="https://lexfridman.com/" target="_blank">Lex Fridman Web Site</a> & <a href="https://www.youtube.com/lexfridman" target="_blank">Lex Fridman Channel on YouTube</a>
-- <a href="https://jldblog.eu/" target="_blank">My blog (in French)</a>
-- To finish, a nod to the project that gave me the idea to develop this application : <a href="https://agadmator-library.github.io/" target="_blank">agadmator-library</a>
+- <a href="https://jldblog.eu/en" target="_blank">My blog (in French and English)</a>
+- To finish, a wink to the project that sparked me the idea for developing this application: <a href="https://agadmator-library.github.io/" target="_blank">agadmator-library</a>
