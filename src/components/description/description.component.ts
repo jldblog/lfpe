@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { VideoData } from 'src/domain/video-data';
@@ -6,7 +6,8 @@ import { VideoData } from 'src/domain/video-data';
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
-  styleUrls: ['./description.component.sass']
+  styleUrls: ['./description.component.sass'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class DescriptionComponent implements OnInit {
