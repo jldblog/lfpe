@@ -7,7 +7,6 @@ import { VideoData } from 'src/domain/video-data';
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.sass'],
-  encapsulation: ViewEncapsulation.None
 })
 
 export class DescriptionComponent implements OnInit {
@@ -166,7 +165,7 @@ export class DescriptionComponent implements OnInit {
   }
 
   htmlifyHeaders(text: string) {
-    return text.replaceAll(/\n(.+:?)\n/g, '\n<b>$1</b>\n');
+    return text.replaceAll(/\n(?!\*)([A-Z ]+:)(?!\*)\n/g, '\n<b>$1</b>\n');
   }
 
   boldify(text: string) {
