@@ -31,7 +31,7 @@ export class DateSearchComponent implements OnInit {
     const now: Date = new Date();
     this.minDateFrom = this.startOfMonthDate(this.FIRST_PODCAST_DATE);
     this.maxDateFrom = this.endOfMonthDate(now);
-    this.minDateTo = this.startOfMonthDate(now);
+    this.minDateTo = this.startOfMonthDate(this.FIRST_PODCAST_DATE);
     this.maxDateTo = this.endOfMonthDate(now);
     this.dateFrom = this.minDateFrom;
     this.dateTo = this.maxDateTo;
