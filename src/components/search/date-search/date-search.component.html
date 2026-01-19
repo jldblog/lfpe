@@ -11,7 +11,7 @@
           [maxDate]="maxDateFrom"
           [showIcon]="true"
           [readonlyInput]="true"
-          (onSelect)="onDateFromChange()"></p-datepicker>
+          (onSelect)="onDateFromChange()" />
       </div>
       <div class="app-datepicker">
         <label>{{ "search.to" | translate }}</label>
@@ -23,8 +23,7 @@
           [maxDate]="maxDateTo"
           [showIcon]="true"
           [readonlyInput]="true"
-          (onSelect)="onDateToChange()">
-        </p-datepicker>
+          (onSelect)="onDateToChange()" />
       </div>
     </div>
   </p-panel>

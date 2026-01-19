@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { VideoData } from 'src/domain/video-data';
@@ -19,8 +19,6 @@ export class DescriptionComponent implements OnInit {
   protected lang: string;
   protected publishedDate!: Date;
   protected descriptionEmpty: boolean = false;
-
-  private ref: DynamicDialogRef | undefined;
 
   constructor(public config: DynamicDialogConfig, private translateService: TranslateService) {
     this.lang = translateService.currentLang;
