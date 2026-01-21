@@ -160,6 +160,14 @@ function patchDescription(videoID: string, snippet: any) {
   }
 }
 
+function getTranscriptUrl(description: string) {
+  // exemple : *Transcript:*\nhttps://lexfridman.com/paul-rosolie-3-transcript\n\n
+  const regexp = /\*Transcript:\*\n(.*?)\n\n/;
+  const match = description.match(regexp);
+
+  return match ? match[1] : '';
+}
+
 function saveVideoData(videoItems: any) {
   videoItems.forEach((item: any) => {
     var videoData = new VideoData();
@@ -187,6 +195,7 @@ function saveVideoData(videoItems: any) {
       videoData.tags = snippet.tags;
       videoData.thumbnails = snippet.thumbnails;
       videoData.statistics = item.statistics;
+      videoData.transcript = getTranscriptUrl(snippet.description);
 
       console.log('Add episode:', titleData.episode);
       videoDB.videos.push(videoData);

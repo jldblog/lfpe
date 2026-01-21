@@ -11,6 +11,7 @@ export class VideoData {
   thumbnails!: Thumbnail;
   tags: string[] = []
   statistics!: Statistics;
+  transcript!: string;
 
   static videosByNumberComparator(video1: VideoData, video2: VideoData): number {
     return (video2.episode ? video2.episode : 0) - (video1.episode ? video1.episode : 0);

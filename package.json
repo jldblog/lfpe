@@ -3,7 +3,7 @@
   "title": "Lex Fridman Podcast – Episodes Explorer",
   "title1": "Lex Fridman Podcast",
   "title2": "Episodes Explorer",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "url": "https://github.com/jldblog/lfpe",
   "type": "module",
   "scripts": {
