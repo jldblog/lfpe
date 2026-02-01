@@ -118,3 +118,8 @@ videos:
   # 488
   - id: 14OPT6CcsH4
     title: "Joel David Hamkins: Infinity, Paradoxes, Gödel Incompleteness & the Mathematical Multiverse | Lex Fridman Podcast #488"
+  # 490
+  - id: EV7WhVT270Q
+    guests:
+      - Nathan Lambert
+      - Sebastian Raschka

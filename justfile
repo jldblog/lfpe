@@ -14,3 +14,7 @@ start:
 
 start-bind port=default_port:
   ng serve --host {{ip}} --port {{port}}
+
+tag version:
+  git tag -a v{{version}} -m "Version {{version}}"
+  git push origin v{{version}}
