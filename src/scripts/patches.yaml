@@ -120,7 +120,10 @@ videos:
     title: "Joel David Hamkins: Infinity, Paradoxes, Gödel Incompleteness & the Mathematical Multiverse | Lex Fridman Podcast #488"
   # 490
   - id: EV7WhVT270Q
-    title: "Nathan Lambert & Sebastian Raschka: State of AI in 2026 : LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI | Lex Fridman Podcast #490"
+    title: "Nathan Lambert & Sebastian Raschka: State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI | Lex Fridman Podcast #490"
     guests:
       - Nathan Lambert
       - Sebastian Raschka
+  # 491
+  - id: YFjfBk8HI5o
+    title: "Peter Steinberger: OpenClaw: The Viral AI Agent that Broke the Internet | Lex Fridman Podcast #491"
